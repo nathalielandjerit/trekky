@@ -1,7 +1,8 @@
 class ActivitiesController < ApplicationController
 
   before_filter :get_travel
-
+  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
+  
   # GET /activities
   # GET /activities.json
   def index
@@ -43,10 +44,17 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
+    @images = params[:activity][:picture]
+    params[:activity].delete(:picture)
     @activity = @travel.activities.new(params[:activity])
 
     respond_to do |format|
       if @activity.save
+        @images.each do |image|
+          @photos = Picture.new(:picture => image)
+          @photos.activity_id = @activity.id
+          @photos.save
+        end
         if params[:commit] == "Envoie et continuer"
           format.html { redirect_to new_travel_activity_path(@travel.id) }
         else

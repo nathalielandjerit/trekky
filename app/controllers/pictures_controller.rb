@@ -1,8 +1,11 @@
 class PicturesController < ApplicationController
+
+  before_filter :get_activity
+  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @pictures = @activity.pictures
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @picture = Picture.find(params[:id])
+    @picture = @activity.pictures.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   # GET /pictures/new.json
   def new
-    @picture = Picture.new
+    @picture = @activity.pictures.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1/edit
   def edit
-    @picture = Picture.find(params[:id])
+    @picture = @activity.pictures.find(params[:id])
   end
 
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = @activity.pictures.new(params[:picture])
 
     respond_to do |format|
       if @picture.save
@@ -56,7 +59,7 @@ class PicturesController < ApplicationController
   # PUT /pictures/1
   # PUT /pictures/1.json
   def update
-    @picture = Picture.find(params[:id])
+    @picture = @activity.pictures.find(params[:id])
 
     respond_to do |format|
       if @picture.update_attributes(params[:picture])
@@ -72,12 +75,22 @@ class PicturesController < ApplicationController
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy
-    @picture = Picture.find(params[:id])
+    @picture = @activity.pictures.find(params[:id])
     @picture.destroy
 
     respond_to do |format|
       format.html { redirect_to pictures_url }
       format.json { head :no_content }
+    end
+  end
+
+  private
+
+  def get_activity
+    unless params[:activity_id].blank?
+      @activity = Activity.find(params[:activity_id])
+    else
+      redirect_to root_url, :error => "What activity???"
     end
   end
 end

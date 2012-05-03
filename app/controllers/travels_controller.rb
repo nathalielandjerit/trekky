@@ -1,6 +1,7 @@
 class TravelsController < ApplicationController
-  # GET /travels
-  # GET /travels.json
+  
+  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @travels = Travel.all
 
