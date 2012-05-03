@@ -41,5 +41,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<%= link_to 'Edit', edit_travel_activity_path(@activity.travel_id, @activity) %> |
+<%= link_to 'Back', travel_activities_path(@activity.travel_id) %>
