@@ -2,6 +2,7 @@ class Activity < ActiveRecord::Base
 
 	belongs_to :travel
 	has_many :pictures, :dependent => :destroy
+	has_many :comments
 	validates_presence_of :name, :description, :activity_type, :lieu
 
 	

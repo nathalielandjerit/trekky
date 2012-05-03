@@ -40,6 +40,19 @@
   <%= @activity.end_activity %>
 </p>
 
+<%= form_for [@travel, @activity,Comment.new] do |f| %>
 
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
+  <fieldset>
+    <legend>Ecrire un commentaire</legend>
+    <%= f.text_area :body, :rows => '3' %><br/>
+    <%= f.submit %>
+  </fieldset>
+
+<% end %>
+<table id="commentaire" class="table">
+<%= render @activity.comments %>
+</table>
+
+
+<%= link_to 'Edit', edit_activity_path(activity) %> |
 <%= link_to 'Back', activities_path %>
