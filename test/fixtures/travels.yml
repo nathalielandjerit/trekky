@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  name: MyString
+  start_country: MyString
+  end_country: MyString
+  start_travel: 2012-04-28
+  end_travel: 2012-04-28
+
+two:
+  user_id: 1
+  name: MyString
+  start_country: MyString
+  end_country: MyString
+  start_travel: 2012-04-28
+  end_travel: 2012-04-28

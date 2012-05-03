@@ -1,0 +1,35 @@
+<h1>Listing travels</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Name</th>
+    <th>Start country</th>
+    <th>End country</th>
+    <th>Start travel</th>
+    <th>End travel</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @travels.each do |travel| %>
+  <tr>
+    <td><%= travel.user_id %></td>
+    <td><%= travel.name %></td>
+    <td><%= travel.start_country %></td>
+    <td><%= travel.end_country %></td>
+    <td><%= travel.start_travel %></td>
+    <td><%= travel.end_travel %></td>
+    <td><%= link_to 'Show', travel %></td>
+    <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
+    <td><%= link_to 'Destroy', travel, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Add Activity', :controller => "activities", :action => "new", :voyage => travel %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Travel', new_travel_path %>

@@ -1,9 +1,9 @@
-
+Cher <%= @order.name %>
 
 Merci d'avoir passer une commande sur le site
 
 voici le recapitulatif de votre commande.
 
-
+<%= render @order.line_items %>
 
 Bonne fin de journée toute l'équipe. 

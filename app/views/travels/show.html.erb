@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @travel.user_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @travel.name %>
+</p>
+
+<p>
+  <b>Start country:</b>
+  <%= @travel.start_country %>
+</p>
+
+<p>
+  <b>End country:</b>
+  <%= @travel.end_country %>
+</p>
+
+<p>
+  <b>Start travel:</b>
+  <%= @travel.start_travel %>
+</p>
+
+<p>
+  <b>End travel:</b>
+  <%= @travel.end_travel %>
+</p>
+
+<%= link_to 'Edit', edit_travel_path(@travel) %> |
+<%= link_to 'Back', travels_path %>

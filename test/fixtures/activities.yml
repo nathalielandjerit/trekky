@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  travel_id: 1
+  name: MyString
+  description: MyText
+  type: 
+  lieu: MyString
+  cost_activity: 9.99
+  start_activity: 2012-04-29 12:31:05
+  end_activity: 2012-04-29 12:31:05
+
+two:
+  travel_id: 1
+  name: MyString
+  description: MyText
+  type: 
+  lieu: MyString
+  cost_activity: 9.99
+  start_activity: 2012-04-29 12:31:05
+  end_activity: 2012-04-29 12:31:05

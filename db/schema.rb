@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503065744) do
+ActiveRecord::Schema.define(:version => 20120429103105) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "travel_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "activity_type"
+    t.string   "lieu"
+    t.decimal  "cost_activity",  :precision => 8, :scale => 2, :default => 0.0
+    t.datetime "start_activity"
+    t.datetime "end_activity"
+    t.datetime "created_at",                                                    :null => false
+    t.datetime "updated_at",                                                    :null => false
+  end
 
   create_table "pictures", :force => true do |t|
     t.integer  "activity_id"
@@ -21,6 +34,21 @@ ActiveRecord::Schema.define(:version => 20120503065744) do
     t.datetime "picture_updated_at"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+  end
+
+  create_table "travels", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "start_country"
+    t.string   "end_country"
+    t.date     "start_travel"
+    t.date     "end_travel"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "illustration_file_name"
+    t.string   "illustration_content_type"
+    t.integer  "illustration_file_size"
+    t.datetime "illustration_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -41,13 +69,8 @@ ActiveRecord::Schema.define(:version => 20120503065744) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

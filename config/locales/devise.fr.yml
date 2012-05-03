@@ -59,8 +59,16 @@ fr:
         user:
           attributes:
             email:
-              blank: "Nonononon"
+              blank: "Vous devez renseigner votre adresse email"
             password:
-              blank: "Ouoiouoiou"
+              blank: "Vous devez choisir un mot de passe"
             pseudo:
-              blank: "fou ton nom"
+              blank: "Vous devez choisir un pseudo"
+        travel: 
+          attributes:
+            name:
+              blank: "Vous devez choisir un nom pour votre périple"
+            start_country:
+              blank: "Vous devez renseigner votre pays de départ"
+            end_country:
+              blank: "Vous devez renseigner votre pays d'arrivée"
