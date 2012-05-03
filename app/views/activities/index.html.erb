@@ -25,9 +25,11 @@
     <td><%= activity.cost_activity %></td>
     <td><%= activity.start_activity %></td>
     <td><%= activity.end_activity %></td>
-    <td><%= link_to 'Show',  travel_activity_path(activity.travel_id, activity) %></td>
+
+    <td><%= link_to 'Show', travel_activity_path(activity.travel_id, activity) %></td>
     <td><%= link_to 'Edit', edit_travel_activity_path(activity.travel_id, activity) %></td>
-    <td><%= link_to 'Destroy', activity, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', travel_activity_path(activity.travel_id, activity), confirm: 'Are you sure?', method: :delete %></td>
+
   </tr>
 <% end %>
 </table>

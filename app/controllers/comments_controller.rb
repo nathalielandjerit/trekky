@@ -1,14 +1,19 @@
 class CommentsController < ApplicationController
   
   def create
-    #@activity = @travel.activities.find(params[:activity_id])
-    @activity = @travel.activity.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
+    
+    if current_user
+      params[:comment][:user_id] = current_user.id
+    else
+      params[:comment][:user_id] = 0
+    end
     @comment = @activity.comments.new(params[:comment])
     if @comment.save
       flash[:success] = "bravo tru as ecrit un commentaire"
-      redirect_to @activity
+      redirect_to [@activity.travel, @activity]
     else
-      render "activity/show"
+      render "activities/show"
     end
   end
 

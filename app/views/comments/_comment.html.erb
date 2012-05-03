@@ -1,3 +1,13 @@
 <tr>
+		<% if comment.user_id == 0 or comment.user_id.nil? %>
+			<td></td>
+			<td>Anonyme</td>
+		<% else %>
+			<% @test = User.find(comment.user_id) %>
+			<td><%= image_tag @test.avatar.url(:thumb) %></td>
+			<td><b><%= @test.pseudo %></b></td>
+		<% end %>
 	<td><%= comment.body %></td>
 </tr>
+
+

@@ -7,6 +7,12 @@ Trekky::Application.routes.draw do
   end
 
   resources :pictures
+  
+  resources :home do
+    collection do
+      match 'recherche' => 'home#recherche', :via => [:get, :post], :as  => :recherche
+    end
+  end
 
   devise_for :users
 
