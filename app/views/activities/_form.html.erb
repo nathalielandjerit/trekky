@@ -38,6 +38,10 @@
     <%= f.label :end_activity %><br />
     <%= f.text_field :end_activity %>
   </div>
+  <div>
+    Images activités<br />
+    <%= f.file_field :picture, :multiple => true %>
+  </div>
   <div class="actions">
     <%= f.submit "Envoie et continuer"%>
     <%= f.submit "Envoie et finir"%>
