@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  travel_id: 1
+  actity_id: 1
+  picture: 
+
+two:
+  user_id: 1
+  travel_id: 1
+  actity_id: 1
+  picture: 

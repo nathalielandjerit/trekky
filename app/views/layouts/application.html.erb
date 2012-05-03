@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trekky</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+
+	<ul>
+		<% if current_user %>
+            <li class="pseudo"><%= current_user.pseudo %></li>
+            <li class="edit"><%= link_to 'Mon profil', edit_user_registration_url %></li>
+            <li><%= link_to 'Deconnexion', destroy_user_session_url, :method => :delete %></li>
+            <li>
+                <%= image_tag current_user.avatar.url(:thumb) %></li>
+          <% else %>
+            <li><%= link_to 'Connexion', new_user_session_url %></li>
+            <li><%= link_to 'S\'inscrire', new_user_registration_url %></li>
+          <% end %>
+	</ul>
+
+<%= yield %>
+
+</body>
+</html>
