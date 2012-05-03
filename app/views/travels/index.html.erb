@@ -12,6 +12,8 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @travels.each do |travel| %>
@@ -23,9 +25,11 @@
     <td><%= travel.start_travel %></td>
     <td><%= travel.end_travel %></td>
     <td><%= link_to 'Show', travel %></td>
+    <td><%= link_to 'Show activities', travel_activities_path(travel) %></td>
+    <td><%= image_tag travel.illustration.url(:thumb) %></td>
     <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
     <td><%= link_to 'Destroy', travel, confirm: 'Are you sure?', method: :delete %></td>
-    <td><%= link_to 'Add Activity', :controller => "activities", :action => "new", :voyage => travel %></td>
+    <td><%= link_to 'Add Activity', new_travel_activity_path(travel) %></td>
   </tr>
 <% end %>
 </table>

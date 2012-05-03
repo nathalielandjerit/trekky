@@ -1,7 +1,8 @@
 Trekky::Application.routes.draw do
-  resources :activities
 
-  resources :travels
+  resources :travels do
+    resources :activities
+  end
 
   resources :pictures
 

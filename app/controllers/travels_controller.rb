@@ -46,7 +46,7 @@ class TravelsController < ApplicationController
 
     respond_to do |format|
       if @travel.save
-        format.html { redirect_to :controller => "activities", :action => "new", :voyage => @travel.id }
+        format.html { redirect_to new_travel_activity_path(@travel.id) }
       else
         format.html { render action: "new" }
       end
