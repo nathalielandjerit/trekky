@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 	def instance_research
 		@q = Travel.search(params[:q])
 	end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
 	
   private
 
@@ -15,4 +19,5 @@ class ApplicationController < ActionController::Base
   		redirect_to :controller => 'home'
   	end
   end
+
 end

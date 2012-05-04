@@ -4,9 +4,12 @@ class Activity < ActiveRecord::Base
 	has_many :pictures, :dependent => :destroy
 	has_many :comments
 	validates_presence_of :name, :description, :activity_type, :lieu
-
 	
 	validate :start_activity_lower_end_activity
+
+	def user
+		self.travel.user
+	end
 
 	private
 

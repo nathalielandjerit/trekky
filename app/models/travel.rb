@@ -7,7 +7,7 @@ class Travel < ActiveRecord::Base
 	validate :mydate_is_date?
 	validate :start_travel_lower_end_travel
 
-	has_attached_file :illustration, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+	has_attached_file :illustration, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "default_:style_travel.png"
 
 	  private
 
