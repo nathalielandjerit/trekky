@@ -13,9 +13,7 @@
 
 <% @pictures.each do |picture| %>
   <tr>
-    <td><%= picture.user_id %></td>
-    <td><%= picture.travel_id %></td>
-    <td><%= picture.actity_id %></td>
+    <td><%= picture.activity_id %></td>
     <td><%= picture.picture %></td>
     <td><%= link_to 'Show', picture %></td>
     <td><%= link_to 'Edit', edit_picture_path(picture) %></td>

@@ -6,21 +6,14 @@ class ApplicationController < ActionController::Base
 	def instance_research
 		@q = Travel.search(params[:q])
 	end
-	
-  private
 
-  def authorize
-  	unless current_user
-  		flash[:error] = "You must be logged in"
-  		redirect_to :controller => 'home'
-  	end
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
   end
-
-
+	
   private
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || current_user
   end
-
 end

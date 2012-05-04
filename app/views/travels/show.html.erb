@@ -30,5 +30,5 @@
   <%= @travel.end_travel %>
 </p>
 
-<%= link_to 'Edit', edit_travel_path(@travel) %> |
+<%= link_to 'Edit', edit_travel_path(@travel) if can? :manage, @travel %> 
 <%= link_to 'Back', travels_path %>

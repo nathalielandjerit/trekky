@@ -46,14 +46,16 @@
 <p>
 <% @activity.pictures.each do |pict| %>
     <%= image_tag pict.picture.url(:thumb) %>
-    <%= link_to 'Destroy', [@activity.travel, @activity, pict], confirm: 'Are you sure?', method: :delete %>
+    <%= link_to 'Destroy', [@activity.travel, @activity, pict], confirm: 'Are you sure?', method: :delete if can? :manage, pict %>
 <% end %>
 </p>
 
-<p><%= render 'formpicture' %></p>
+<p><%= render 'formpicture' if can? :manage, @activity %></p>
 
 <%= form_for [@activity.travel, @activity,Comment.new] do |f| %>
-
+  <% if current_user.nil? %>
+    Attention vous n'etes pas connecté
+  <% end %>
   <fieldset>
     <legend>Ecrire un commentaire</legend>
     <%= f.text_area :body, :rows => '3' %><br/>
@@ -65,7 +67,6 @@
 <%= render @activity.comments %>
 </table>
 
-
-<%= link_to 'Edit', edit_travel_activity_path(@activity.travel_id, @activity) %> |
+<%= link_to 'Edit', edit_travel_activity_path(@activity.travel_id, @activity) if can? :manage, @activity %> 
 <%= link_to 'Back', travel_activities_path(@activity.travel_id) %>
 

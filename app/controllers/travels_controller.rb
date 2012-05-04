@@ -1,84 +1,52 @@
 class TravelsController < ApplicationController
-  
-  before_filter :authorize, :only => [:new, :create, :edit, :update, :destroy]
+
+  before_filter :authenticate_user!, :except => [:index, :show]
+  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy]
 
   def index
     @travels = Travel.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @travels }
-    end
   end
 
-  # GET /travels/1
-  # GET /travels/1.json
   def show
     @travel = Travel.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @travel }
-    end
   end
 
-  # GET /travels/new
-  # GET /travels/new.json
   def new
     @user = User.find(current_user)
     @travel = Travel.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @travel }
-    end
   end
 
-  # GET /travels/1/edit
   def edit
     @travel = Travel.find(params[:id])
   end
 
-  # POST /travels
-  # POST /travels.json
   def create
     @user = User.find(current_user)
     @travel = @user.travels.new(params[:travel])
 
-    respond_to do |format|
-      if @travel.save
-        format.html { redirect_to new_travel_activity_path(@travel.id) }
-      else
-        format.html { render action: "new" }
-      end
+    if @travel.save
+      redirect_to new_travel_activity_path(@travel.id)
+    else
+      render action: "new"
     end
+
   end
 
-  # PUT /travels/1
-  # PUT /travels/1.json
   def update
     @travel = Travel.find(params[:id])
 
-    respond_to do |format|
-      if @travel.update_attributes(params[:travel])
-        format.html { redirect_to @travel, notice: 'Travel was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @travel.errors, status: :unprocessable_entity }
-      end
+    if @travel.update_attributes(params[:travel])
+      redirect_to @travel, notice: 'Travel was successfully updated.'
+    else
+      render action: "edit"
     end
+
   end
 
-  # DELETE /travels/1
-  # DELETE /travels/1.json
   def destroy
     @travel = Travel.find(params[:id])
     @travel.destroy
-
-    respond_to do |format|
-      format.html { redirect_to travels_url }
-      format.json { head :no_content }
-    end
+    redirect_to travels_url
   end
+  
 end
