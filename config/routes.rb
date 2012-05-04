@@ -11,7 +11,7 @@ Trekky::Application.routes.draw do
   
   resources :home do
     collection do
-      match 'recherche' => 'home#recherche', :via => [:get, :post], :as  => :recherche
+      match 'search' => 'home#search', :via => [:get, :post], :as  => :search
     end
   end
 

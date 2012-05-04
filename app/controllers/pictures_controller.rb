@@ -44,15 +44,10 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @picture = @activity.pictures.new(params[:picture])
-
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render json: @picture, status: :created, location: @picture }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+    if @picture.save
+      redirect_to [@activity.travel, @activity], notice: 'Picture was successfully created.'
+    else
+      render action: "activities/show"
     end
   end
 
@@ -79,7 +74,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url }
+      format.html { redirect_to [@activity.travel, @activity] }
       format.json { head :no_content }
     end
   end

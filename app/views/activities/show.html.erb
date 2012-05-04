@@ -40,6 +40,15 @@
   <%= @activity.end_activity %>
 </p>
 
+<p>
+<% @activity.pictures.each do |pict| %>
+    <%= image_tag pict.picture.url(:thumb) %>
+    <%= link_to 'Destroy', [@activity.travel, @activity, pict], confirm: 'Are you sure?', method: :delete %>
+<% end %>
+</p>
+
+<p><%= render 'formpicture' %></p>
+
 <%= form_for [@activity.travel, @activity,Comment.new] do |f| %>
 
   <fieldset>
