@@ -17,6 +17,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    @picture = Picture.new
     @activity = @travel.activities.find(params[:id])
 
     respond_to do |format|

@@ -19,7 +19,7 @@
           <% end %>
 	</ul>
 
-  <%= search_form_for @q, :url => recherche_home_index_path do |f| %>
+  <%= search_form_for @q, :url => search_home_index_path do |f| %>
     <%= f.label :name_or_start_country_or_end_country_cont, "je recherche un carnet" %>
     <%= f.text_field :name_or_start_country_or_end_country_cont %>
     <%= f.submit %>
