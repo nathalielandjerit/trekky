@@ -3,18 +3,11 @@
 <head>
   <title>Trekky</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= stylesheet_link_tag    "jquery-ui-timepicker-addon", :media => "all" %>
+  <%= stylesheet_link_tag    "jquery-ui-1.8.5.custom", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "jquery-1.7.2" %>
-  <%= javascript_include_tag "jquery.ui.core" %>
-  <%= javascript_include_tag "jquery.ui.widget" %>
-  <%= javascript_include_tag "jquery.ui.datepicker" %>
-
-  <script>
-  $(function() {
-    $( ".datepicker" ).datepicker();
-  });
-  </script>
+  <%= javascript_include_tag "jquery-1.4.2.min" %>
+  <%= javascript_include_tag "jquery-ui-1.8.5.custom.min" %>
+  <%= javascript_include_tag "jquery-ui-timepicker-addon-0.6.2" %>
 
   <%= csrf_meta_tags %>
 </head>
@@ -39,6 +32,11 @@
   <% end %>
 
 <%= yield %>
+
+
+<script type="text/javascript">// <![CDATA[
+$("#date_picker").datepicker();
+$("#datetime_picker").datetimepicker();// ]]&gt;</script>
 
 </body>
 </html>
