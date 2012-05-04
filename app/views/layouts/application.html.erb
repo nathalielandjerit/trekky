@@ -3,7 +3,19 @@
 <head>
   <title>Trekky</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "jquery-ui-timepicker-addon", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.7.2" %>
+  <%= javascript_include_tag "jquery.ui.core" %>
+  <%= javascript_include_tag "jquery.ui.widget" %>
+  <%= javascript_include_tag "jquery.ui.datepicker" %>
+
+  <script>
+  $(function() {
+    $( ".datepicker" ).datepicker();
+  });
+  </script>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,13 +25,10 @@
 	<ul>
 		<% if current_user %>
             <li class="pseudo"><%= current_user.pseudo %></li>
-            <li><%= link_to 'mon profil', edit_user_registration_url %></li>
+            <!--<li><%= link_to 'mon profil', edit_user_registration_url %></li>-->
+            <li><%= link_to 'show mon profil', current_user %></li>
             <li><%= link_to 'Deconnexion', destroy_user_session_url, :method => :delete %></li>
-            <li>
-                <%= image_tag current_user.avatar.url(:thumb) %></li>
-          <% else %>
-            <li><%= link_to 'Connexion', new_user_session_url %></li>
-            <li><%= link_to 'S\'inscrire', new_user_registration_url %></li>
+            <li><%= image_tag current_user.avatar.url(:thumb) %></li>
           <% end %>
 	</ul>
 

@@ -13,11 +13,7 @@ class ApplicationController < ActionController::Base
 	
   private
 
-  def authorize
-  	unless current_user
-  		flash[:error] = "You must be logged in"
-  		redirect_to :controller => 'home'
-  	end
+  def after_sign_in_path_for(resource)
+    stored_location_for(resource) || current_user
   end
-
 end
