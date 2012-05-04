@@ -1,0 +1,50 @@
+<p><%= @user.pseudo %></p>
+<%= image_tag current_user.avatar.url(:medium) %>
+
+<p><%= link_to 'editer mon profil', edit_user_registration_url %></p>
+
+<h1>Listes de mes voyages</h1>
+
+
+<% if @travels.count > 0 %>
+	<table>
+		<tr>
+			<th>User</th>
+			<th>Name</th>
+			<th>Start country</th>
+			<th>End country</th>
+			<th>Start travel</th>
+			<th>End travel</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<% @travels.each do |travel| %>
+		<tr>
+			<td><%= travel.user_id %></td>
+			<td><%= travel.name %></td>
+			<td><%= travel.start_country %></td>
+			<td><%= travel.end_country %></td>
+			<td><%= travel.start_travel %></td>
+			<td><%= travel.end_travel %></td>
+			<td><%= link_to 'Show', travel %></td>
+			<td><%= link_to 'Show activities', travel_activities_path(travel) %></td>
+			<td><%= image_tag travel.illustration.url(:thumb) %></td>
+			<td><%= link_to 'Edit', edit_travel_path(travel) %></td>
+			<td><%= link_to 'Destroy', travel, confirm: 'Are you sure?', method: :delete %></td>
+			<td><%= link_to 'Add Activity', new_travel_activity_path(travel) %></td>
+		</tr>
+		<% end %>
+	</table>
+<% else %> 
+	Il n'y a pas de voyages
+<% end %>
+
+
+
+<br />
+
+<%= link_to 'New Travel', new_travel_path %>

@@ -13,4 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     super
   end
+
+  def show
+  end
 end 

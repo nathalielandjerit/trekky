@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
 */
+
+.ui-datepicker-header{
+	background-color: #fff;
+	border-radius:10px 10px 0 0;
+	border:1px solid #000;
+	border-bottom:0px;
+	padding:10px 10px 0 10px;
+}
+
+.ui-datepicker-calendar{
+	background-color: #fff;
+	border-radius:0 0 10px 10px;
+	border:1px solid #000;
+	border-top:0px;
+	padding:0px 10px 10px 10px;
+}
+
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
