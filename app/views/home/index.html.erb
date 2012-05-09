@@ -1,19 +1,9 @@
-<h1>Log in</h1>
+<div id="main_index">
 
-<%= link_to "Pas encore incrit", new_user_registration_url %>
+	<h1>Log in</h1>
 
-<%= form_for("user", :url => user_session_path) do |f| %>
-<%= f.label :pseudo %>
-  <%= f.text_field :pseudo %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <!--<%= f.check_box :remember_me %>
-  <%= f.label :remember_me %>-->
-  <%= f.submit 'Sign in' %>
-  <%= link_to "Forgot your password?", new_password_path('user') %>
-<% end %>
+	<%= link_to "Pas encore incrit", new_user_registration_url %>
 
-<%= link_to "Je partage mon voyage", new_travel_url %>
 
 <h2>Last travel</h2>
 <table>
@@ -56,3 +46,19 @@
   </tr>
 <% end %>
 </table>
+
+	<%= form_for("user", :url => user_session_path) do |f| %>
+	<%= f.label :pseudo %>
+	  <%= f.text_field :pseudo %>
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	  <!--<%= f.check_box :remember_me %>
+	  <%= f.label :remember_me %>-->
+	  <%= f.submit 'Sign in' %>
+	  <%= link_to "Forgot your password?", new_password_path('user') %>
+	<% end %>
+
+	<%= link_to "Je partage mon voyage", new_travel_url %>
+
+</div>
+

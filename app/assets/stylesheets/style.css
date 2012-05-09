@@ -1,0 +1,171 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family:arial;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+	background-color:#222222;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+img{
+	border:none;
+}
+
+/* CSS TREKKY */
+
+/******************************************************************************/
+/************************************HEADER************************************/
+/******************************************************************************/
+#background_header_index{
+	height:152px;
+	background-image:url(header.jpg);
+	background-repeat:repeat-x;
+}
+
+#header_index{
+	height:152px;
+	width: 1035px;
+	margin:auto;
+	background:url(logo.jpg) no-repeat center 20px transparent;
+}
+
+
+/*************INFO MEMBRE************************/
+#header_index ul {
+  float: right;
+  margin-top: 10px;
+  width: 335px;
+}
+
+#header_index ul li{
+	float:right;
+	background-color: #393939;
+	padding:10px;
+}
+
+#header_index ul li.logout {
+  background-color: transparent;
+  height: 32px;
+}
+
+#header_index p.logo {
+  float: left;
+  margin-left: 347px;
+  width: 335px;
+}
+#header_index p.logo a{
+  display: block;
+  height: 141px;
+  width: 302px;
+}
+
+#header_index ul li a{
+	color:#ffffff;
+	text-decoration:none;
+	font-size:12px;
+}
+
+#header_index ul li a.deconexion{
+	color:#868686;
+}
+
+#header_index ul li img{
+	width:33px;
+	height:29px;
+}
+
+/*****************RECHERCHE*******************/
+#travel_search {
+  float: right;
+  margin-top: 28px;
+}
+
+#travel_search img {
+  position: relative;
+  top: 8px;
+}
+
+#travel_search input {
+  border: 1px solid #BEBEBE;
+  color: #818181;
+  font-size: 12px;
+  font-style: italic;
+  height: 21px;
+  padding: 1px 0 0;
+}
+
+#travel_search input:last-child{
+    border:none;
+    color:#fff;
+    background: transparent url(searchbar_ok_index_down.jpg) no-repeat;
+    width:25px;
+    height:23px;
+    padding:0px;
+}
+
+#travel_search input:last-child:hover {
+cursor:pointer;
+background-image: url(searchbar_ok_index_up.jpg);
+}
+
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+
+#contenu{
+	height:420px;
+	margin:auto;
+	background-image:url(background.jpg);
+	background-repeat:no-repeat;
+}
+
+#main_index {
+  background: url("background_index.png") no-repeat scroll center 0 transparent;
+  height: 420px;
+  margin: auto;
+  width: 1035px;
+}
+
+#footer{
+	height:222px;
+	margin:auto;
+	background-image:url(footer_index.jpg);
+	background-repeat:repeat-x;
+}
