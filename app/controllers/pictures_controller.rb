@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   before_filter :get_activity
   before_filter :authenticate_user!, :except => [:index, :show]
-  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:create, :edit, :update, :destroy]
  
   def index
     @pictures = @activity.pictures
@@ -12,12 +12,6 @@ class PicturesController < ApplicationController
   def show
     @picture = @activity.pictures.find(params[:id])
   end
-
-
-  def new
-    @picture = @activity.pictures.new
-  end
-
  
   def edit
     @picture = @activity.pictures.find(params[:id])

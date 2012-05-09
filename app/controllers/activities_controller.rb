@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   before_filter :get_travel
   before_filter :authenticate_user!, :except => [:index, :show]
-  load_and_authorize_resource :only => [:new, :create, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:create, :edit, :update, :destroy]
   
 
   def index
@@ -17,6 +17,7 @@ class ActivitiesController < ApplicationController
 
   def new
     @activity = @travel.activities.new
+    authorize! :new, @activity
   end
 
 

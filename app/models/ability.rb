@@ -25,8 +25,9 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     can :read, :all
-    can :manage, [Travel, Picture], :user => user
-    can :manage, Activity, :user => user
+    can :manage, Travel, :user => user
+    can :manage, Activity, :travel => { :user => user }
+    can :manage, Picture, :activity => { :travel => { :user => user } }
 
   end
 end

@@ -4,16 +4,10 @@ class UsersController < ApplicationController
 
   end
 
-def show
-  @user = User.find(params[:id])
-
-  if (Travel.all.count > 0 )
-  	@travels = Travel.all(:conditions => ['user_id = ?', params[:id]]) 
-  else 
-  	'Je n\'ai pas de voyages'
+  def show
+  	user_id = params[:id] || current_user.id
+    @user = User.find(user_id)
+    @travels = Travel.all(:conditions => ['user_id = ?', user_id]) 
   end
-
-end
-
 
 end

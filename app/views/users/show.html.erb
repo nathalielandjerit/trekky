@@ -1,5 +1,5 @@
 <p><%= @user.pseudo %></p>
-<%= image_tag current_user.avatar.url(:medium) %>
+<%= image_tag @user.avatar.url(:thumb) %>
 
 <p><%= link_to 'editer mon profil', edit_user_registration_url %></p>
 
