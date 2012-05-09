@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   before_filter :get_travel
   before_filter :authenticate_user!, :except => [:index, :show]
-  load_and_authorize_resource :only => [:create, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:edit, :update, :destroy]
   
 
   def index
@@ -29,13 +29,15 @@ class ActivitiesController < ApplicationController
     @images = params[:activity][:picture]
     params[:activity].delete(:picture)
     @activity = @travel.activities.new(params[:activity])
-
+    authorize! :create, @activity
     
       if @activity.save
-        @images.each do |image|
-          @photos = Picture.new(:picture => image)
-          @photos.activity_id = @activity.id
-          @photos.save
+        if !@images.nil?
+          @images.each do |image|
+            @photos = Picture.new(:picture => image)
+            @photos.activity_id = @activity.id
+            @photos.save
+          end
         end
         if params[:commit] == "Envoie et continuer"
           redirect_to new_travel_activity_path(@travel.id)

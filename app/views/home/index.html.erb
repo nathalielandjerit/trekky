@@ -14,3 +14,45 @@
 <% end %>
 
 <%= link_to "Je partage mon voyage", new_travel_url %>
+
+<h2>Last travel</h2>
+<table>
+	<tr>
+	    <th>Name</th>
+	    <th>Start country</th>
+	    <th>End country</th>
+	    <th>Start travel</th>
+	    <th>End travel</th>
+	    <th></th>
+ 	</tr>
+  <tr>
+    <td><%= @last_activity.travel.name %></td>
+    <td><%= @last_activity.travel.start_country %></td>
+    <td><%= @last_activity.travel.end_country %></td>
+    <td><%= @last_activity.travel.start_travel %></td>
+    <td><%= @last_activity.travel.end_travel %></td>
+    <td><%= link_to (image_tag @last_activity.travel.illustration.url(:thumb)), travel_activities_path(@last_activity.travel) %></td>
+  </tr>
+</table>
+
+<h2>Derniers</h2>
+<table>
+	<tr>
+	    <th>Name</th>
+	    <th>Start country</th>
+	    <th>End country</th>
+	    <th>Start travel</th>
+	    <th>End travel</th>
+	    <th></th>
+ 	</tr>
+<% @last_travel.each do |travel| %>
+  <tr>
+    <td><%= travel.name %></td>
+    <td><%= travel.start_country %></td>
+    <td><%= travel.end_country %></td>
+    <td><%= travel.start_travel %></td>
+    <td><%= travel.end_travel %></td>
+    <td><%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %></td>
+  </tr>
+<% end %>
+</table>

@@ -12,7 +12,7 @@ gem 'paperclip'
 gem "will_paginate"
 gem "ransack"
 gem "cancan"
-
+gem "validates_timeliness"
 
 # Gems used only for assets and not required
 # in production environments by default.

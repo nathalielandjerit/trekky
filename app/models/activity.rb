@@ -5,6 +5,8 @@ class Activity < ActiveRecord::Base
 	has_many :comments
 	validates_presence_of :name, :description, :activity_type, :lieu
 	
+	validates_datetime :start_activity, :end_activity
+
 	validate :start_activity_lower_end_activity
 
 	def user
@@ -12,15 +14,6 @@ class Activity < ActiveRecord::Base
 	end
 
 	private
-
-	  def mydate_is_datetime?
-	    if !self.start_activity.is_a?(Date)
-	      self.errors.add(:start_activity, 'must be a valid date') 
-	    end
-	    if !self.end_activity.is_a?(Date)
-	      self.errors.add(:end_activity, 'must be a valid date') 
-	    end
-	  end
 
 	  def start_activity_lower_end_activity
 	  	if !self.start_activity.nil? and !self.end_activity.nil? and self.start_activity > self.end_activity

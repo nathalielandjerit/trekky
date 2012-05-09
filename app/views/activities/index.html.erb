@@ -28,45 +28,47 @@
 <hr/>
 
 <h1>Listing activities</h1>
+<% if @activities.count > 0 %>
+  <table>
+    <tr>
+      <th>Travel</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Type</th>
+      <th>Lieu</th>
+      <th>Cost activity</th>
+      <th>Start activity</th>
+      <th>End activity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th>Travel</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Type</th>
-    <th>Lieu</th>
-    <th>Cost activity</th>
-    <th>Start activity</th>
-    <th>End activity</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+  <% @activities.each do |activity| %>
+    <tr>
+      <td><%= activity.travel_id %></td>
+      <td><%= activity.name %></td>
+      <td><%= activity.description %></td>
+      <td><%= activity.activity_type %></td>
+      <td><%= activity.lieu %></td>
+      <td><%= activity.cost_activity %></td>
+      <td><%= activity.start_activity %></td>
+      <td><%= activity.end_activity %></td>
+      <td>
+          <% @testP = Picture.find(:first, :conditions => [ "activity_id = ?", activity.id ]) %>
+          <%= image_tag @testP.picture.url(:thumb) %>
+      </td>
+      <td><%= link_to 'Show', travel_activity_path(activity.travel_id, activity) %></td>
+      <td><%= link_to 'Edit', edit_travel_activity_path(activity.travel_id, activity) if can? :manage, activity %></td>
+      <td><%= link_to 'Destroy', travel_activity_path(activity.travel_id, activity), confirm: 'Are you sure?', method: :delete if can? :manage, activity %></td>
 
-<% @activities.each do |activity| %>
-  <tr>
-    <td><%= activity.travel_id %></td>
-    <td><%= activity.name %></td>
-    <td><%= activity.description %></td>
-    <td><%= activity.activity_type %></td>
-    <td><%= activity.lieu %></td>
-    <td><%= activity.cost_activity %></td>
-    <td><%= activity.start_activity %></td>
-    <td><%= activity.end_activity %></td>
-    <td>
-        <% activity.pictures.each do |pict| %>
-            <%= image_tag pict.picture.url(:thumb) %>
-        <% end %>
-    </td>
-    <td><%= link_to 'Show', travel_activity_path(activity.travel_id, activity) %></td>
-    <td><%= link_to 'Edit', edit_travel_activity_path(activity.travel_id, activity) if can? :manage, activity %></td>
-    <td><%= link_to 'Destroy', travel_activity_path(activity.travel_id, activity), confirm: 'Are you sure?', method: :delete if can? :manage, activity %></td>
-
-  </tr>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  Pas d'activites encore !
 <% end %>
-</table>
 
 <br />
 

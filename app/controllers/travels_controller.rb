@@ -36,7 +36,7 @@ class TravelsController < ApplicationController
     @travel = Travel.find(params[:id])
 
     if @travel.update_attributes(params[:travel])
-      redirect_to @travel, notice: 'Travel was successfully updated.'
+      redirect_to current_user, notice: 'Travel was successfully updated.'
     else
       render action: "edit"
     end

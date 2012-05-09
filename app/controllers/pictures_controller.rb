@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   before_filter :get_activity
   before_filter :authenticate_user!, :except => [:index, :show]
-  load_and_authorize_resource :only => [:create, :edit, :update, :destroy]
+  load_and_authorize_resource :only => [:edit, :update, :destroy]
  
   def index
     @pictures = @activity.pictures
@@ -19,11 +19,17 @@ class PicturesController < ApplicationController
 
   def create
     @picture = @activity.pictures.new(params[:picture])
-    if @picture.save
-      redirect_to [@activity.travel, @activity], notice: 'Picture was successfully created.'
+    authorize! :create, @picture
+    if !@picture[:picture_file_name].nil?
+      if @picture.save
+        redirect_to [@activity.travel, @activity], notice: 'Picture was successfully created.'
+      else
+        redirect_to [@activity.travel, @activity], notice: 'Picture was not successfully created.'
+      end
     else
-      render action: "activities/show"
+      redirect_to [@activity.travel, @activity], notice: 'Picture was not successfully created.'
     end
+
   end
 
   def update

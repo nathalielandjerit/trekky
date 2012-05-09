@@ -1,27 +1,31 @@
-<table>
-  <tr>
-    <th>User</th>
-    <th>Name</th>
-    <th>Start country</th>
-    <th>End country</th>
-    <th>Start travel</th>
-    <th>End travel</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if @travels.count > 0 %>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Name</th>
+        <th>Start country</th>
+        <th>End country</th>
+        <th>Start travel</th>
+        <th>End travel</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% @travels.each do |travel| %>
-  <tr>
-    <td><%= travel.user_id %></td>
-    <td><%= travel.name %></td>
-    <td><%= travel.start_country %></td>
-    <td><%= travel.end_country %></td>
-    <td><%= travel.start_travel %></td>
-    <td><%= travel.end_travel %></td>
-  </tr>
+    <% @travels.each do |travel| %>
+      <tr>
+        <td><%= travel.user_id %></td>
+        <td><%= travel.name %></td>
+        <td><%= travel.start_country %></td>
+        <td><%= travel.end_country %></td>
+        <td><%= travel.start_travel %></td>
+        <td><%= travel.end_travel %></td>
+      </tr>
+    <% end %>
+    </table>
+<% else %>
+    <p>Votre recherche n'a retourne aucun resultats</p>
 <% end %>
-</table>
