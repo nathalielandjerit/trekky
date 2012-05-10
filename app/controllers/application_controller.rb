@@ -1,14 +1,20 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 	
-	before_filter :instance_research
+  before_filter :instance_research
+	before_filter :last_travel
 
 	def instance_research
 		@q = Travel.search(params[:q])
 	end
 
+  def last_travel
+    @last_travel_ouai = Travel.limit(7).order('created_at desc')
+  end
+
+
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to home, :alert => exception.message
   end
 	
   private
