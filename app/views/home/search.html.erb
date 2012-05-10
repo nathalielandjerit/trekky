@@ -1,31 +1,31 @@
-<% if @travels.count > 0 %>
-    <table>
-      <tr>
-        <th>User</th>
-        <th>Name</th>
-        <th>Start country</th>
-        <th>End country</th>
-        <th>Start travel</th>
-        <th>End travel</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+<div id="search">
+    <div id="contenu_search">
+        <h1>Resultat de votre recherche</h1>
 
-    <% @travels.each do |travel| %>
-      <tr>
-        <td><%= travel.user_id %></td>
-        <td><%= travel.name %></td>
-        <td><%= travel.start_country %></td>
-        <td><%= travel.end_country %></td>
-        <td><%= travel.start_travel %></td>
-        <td><%= travel.end_travel %></td>
-      </tr>
-    <% end %>
-    </table>
-<% else %>
-    <p>Votre recherche n'a retourne aucun resultats</p>
-<% end %>
+        <% if @travels.count > 0 %>
+            <table>
+
+            <% @travels.each do |travel| %>
+              <tr>
+                <td class="col_photo">
+                    <%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %>
+                </td>
+                <td class="col_desc">
+                    <h2><%= travel.name %></h2>
+                    par<br>
+                    Dépars : <%= travel.start_country %> Arrivé : <%= travel.end_country %>
+                </td>
+                <td class="col_dates">
+                    Du <%= travel.start_travel %><br/>
+                    Au <%= travel.end_travel %>
+                </td>
+              </tr>
+            <% end %>
+            </table>
+            <%= will_paginate @travels %>
+        <% else %>
+            <p>Votre recherche n'a retourne aucun resultats</p>
+        <% end %>
+
+    </div>
+</div>

@@ -13,15 +13,13 @@
 						Au <span><%= @last_activity.travel.end_travel %></span>
 					</p>
 					<h2><%= @last_activity.travel.name %></h2>
-<<<<<<< HEAD
+
 					<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
-					<p><%= @last_activity.description %></p>
-=======
-					<h3>Par <%= @last_activity.travel.user.pseudo %></h3>
 					<div class="description">
-						<p><%= @last_activity.description %></p>
+						<p><%= truncate(@last_activity.description, :length => 450) %></p>
+						<p id="savoirplus"><%= link_to "Savoir plus", travel_activities_path(@last_activity.travel)%></p>
 					</div>
->>>>>>> 986fa5c3c9cd02a2ab118eb1073e499a7a74b0af
+
 				</div>
 			</div>
 
