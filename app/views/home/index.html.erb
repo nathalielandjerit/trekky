@@ -2,7 +2,7 @@
 	<div id="main_index_left">
 			<h1>Le trek du jour</h1>
 
-			<% if @last_activity.count > 0 %>
+			<% if !@last_activity.nil? %>
 				<div class="img_trek_du_jour">
 					<%= link_to (image_tag @last_activity.travel.illustration.url(:medium)), travel_activities_path(@last_activity.travel) %>
 				</div>
