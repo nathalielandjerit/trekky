@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
+    <head>
+        <title>Trekky</title>
+        <%= stylesheet_link_tag    "style", :media => "all" %>
+        <%= stylesheet_link_tag    "jquery-ui-1.8.5.custom", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag "jquery-1.4.2.min" %>
+        <%= javascript_include_tag "jquery-ui-1.8.5.custom.min" %>
+        <%= javascript_include_tag "jquery-ui-timepicker-addon-0.6.2" %>
 
-<body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
-</body>
+        <%= csrf_meta_tags %>
+    </head>
+    <body>
+        <div id="background_header_index">
+            <div id="header_index">
+                <p class="logo"><%= link_to '', root_url, :class => 'lien_logo' %></p>
+                <ul>
+                    <% if current_user %>
+                        <!--<li class="pseudo"><%= current_user.pseudo %></li>
+                        <li><%= link_to 'mon profil', edit_user_registration_url %></li>-->
+                        <li><%= link_to (image_tag current_user.avatar.url(:thumb)), current_user %></li>
+                        <li class="info_membre"><%= link_to 'Bonjour '+current_user.pseudo, current_user %><br/>
+                        <%= link_to 'Deconnexion', destroy_user_session_url, :method => :delete, :class => 'deconexion' %></li>
+                    <% else %>
+                        <li class="logout"></br></li>
+                    <% end %>
+                </ul>
+                <%= search_form_for @q, :url => search_home_index_path do |f| %>
+                    <!--<%= f.label :name_or_start_country_or_end_country_cont, "je recherche un carnet" %>-->
+                    <%= image_tag("search_label.jpg") %>
+                    <%= f.text_field :name_or_start_country_or_end_country_cont, :value => "Rechercher" %>
+                    <%= f.submit(" ") %>
+                <% end %>
+
+            </div>
+
+        </div>
+
+        <div id="contenu">
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+
+            <%= image_tag("trekky404.png") %>
+        </div>
+
+        <div id="footer">
+            <div class="derniers">
+                <h1>Derniers treks partagés</h1>
+                <div id="derniers_slider">
+                    <% @last_travel_ouai.each do |travel| %>
+                        <div class="dernier_slider_event">
+                            <div class="dernier_slider_event_img">
+                                <%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %>
+                            </div>
+                            <div class="dernier_slider_event_texte">
+                                <p class="pays"><%= travel.name %></p>
+                                <p class="name">par </p>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="text/javascript">// <![CDATA[
+        $(".date_picker").datepicker();
+        $(".datetime_picker").datetimepicker();// ]]&gt;</script>
+
+    </body>
 </html>
