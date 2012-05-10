@@ -10,18 +10,18 @@
                     <%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %>
                 </td>
                 <td class="col_desc">
-                    <h2><%= travel.name %></h2>
-                    par<br>
-                    Dépars : <%= travel.start_country %> Arrivé : <%= travel.end_country %>
+                    <h2><%= link_to travel.name, travel_activities_path(travel) %></h2>
+                    <%= link_to "par "+travel.user.pseudo, travel.user%><br><br>
+                    <p>Un trek qui part de <%= travel.start_country %> et qui finit en <%= travel.end_country %></p>
                 </td>
                 <td class="col_dates">
-                    Du <%= travel.start_travel %><br/>
-                    Au <%= travel.end_travel %>
+                    <p>Du <span><%= travel.start_travel %></span><br/>
+                    Au <span><%= travel.end_travel %></span></p>
                 </td>
               </tr>
             <% end %>
             </table>
-            <%= will_paginate @travels %>
+            <%= will_paginate @travels, :previous_label => t('helpers.labels.<'), :next_label => t('helpers.labels.>') %>
         <% else %>
             <p>Votre recherche n'a retourne aucun resultats</p>
         <% end %>

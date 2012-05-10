@@ -1,50 +1,44 @@
-<p><%= @user.pseudo %></p>
-<%= image_tag @user.avatar.url(:thumb) %>
+<div id="profil">
+	<div id="contenu_profil">
+		<h1>Fiche de <%= @user.pseudo %></h1>
 
-<p><%= link_to 'editer mon profil', edit_user_registration_url %></p>
+		<div id="profil_col_gauche">
+			<h2>Profil</h2>
+			<%= image_tag @user.avatar.url(:medium) %>
+			<%= link_to 'Editer', edit_user_registration_url %>
+		</div>
 
-<h1>Listes de mes voyages</h1>
+		<div id="profil_col_droite">
+			<h2>Ses Treks</h2>
+		
 
+			<% if @travels.count > 0 %>
+				<table>
+					<% @travels.each do |travel| %>
+					<tr>
+						<td class="col_photo"><%= link_to (image_tag travel.illustration.url(:thumb)), travel %></td>
+						<td class="col_desc"><h3><%= link_to travel.name, travel %></h3>
+							<p>Du <span><%= travel.start_travel %></span> Au <span><%= travel.end_travel %></span></p>
+							Dépars : <%= travel.start_country %> <br/>
+							Arrivée : <%= travel.end_country %>
+						</td>
+						<!--<td><%= link_to 'Show', travel %></td>
+						<td><%= link_to 'Show activities', travel_activities_path(travel) %></td>-->					
+						<td class="col_option"><%= link_to 'Editer', edit_travel_path(travel) if can? :manage, travel %><br/>
+							<%= link_to '+ Activité', new_travel_activity_path(travel) if can? :manage, travel %><br/>
+							<%= link_to 'Supprimer', travel, confirm: 'Etes-vous sûre de vouloir supprimer ce trek ?', method: :delete if can? :manage, travel %></td>					
+					</tr>
+					<% end %>
+				</table>
+			<% else %> 
+				Il n'y a pas de voyages
+			<% end %>
 
-<% if @travels.count > 0 %>
-	<table>
-		<tr>
-			<th>User</th>
-			<th>Name</th>
-			<th>Start country</th>
-			<th>End country</th>
-			<th>Start travel</th>
-			<th>End travel</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		<% @travels.each do |travel| %>
-		<tr>
-			<td><%= travel.user_id %></td>
-			<td><%= travel.name %></td>
-			<td><%= travel.start_country %></td>
-			<td><%= travel.end_country %></td>
-			<td><%= travel.start_travel %></td>
-			<td><%= travel.end_travel %></td>
-			<td><%= link_to 'Show', travel %></td>
-			<td><%= link_to 'Show activities', travel_activities_path(travel) %></td>
-			<td><%= image_tag travel.illustration.url(:thumb) %></td>
-			<td><%= link_to 'Edit', edit_travel_path(travel) if can? :manage, travel %></td>
-			<td><%= link_to 'Destroy', travel, confirm: 'Etes-vous sûre de vouloir supprimer ce trek ?', method: :delete if can? :manage, travel %></td>
-			<td><%= link_to 'Add Activity', new_travel_activity_path(travel) if can? :manage, travel %></td>
-		</tr>
-		<% end %>
-	</table>
-<% else %> 
-	Il n'y a pas de voyages
-<% end %>
+			<br />
+
+			<%= link_to 'New Travel', new_travel_path, :class => "new_travel" %>
+		</div>
 
 
-
-<br />
-
-<%= link_to 'New Travel', new_travel_path %>
+	</div>
+</div>

@@ -73,6 +73,9 @@ a:hover{
 	background:url(logo.jpg) no-repeat center 20px transparent;
 }
 
+.FBConnectButton_Simple, .FBConnectButton_RTL_Simple{
+	background:none !important;
+}
 
 /*************INFO MEMBRE************************/
 #header_index ul {
@@ -92,9 +95,14 @@ a:hover{
   height: 32px;
 }
 
+#header_index #reseaux {
+  float: left;
+  margin-top: 109px;
+}
+
 #header_index p.logo {
   float: left;
-  margin-left: 347px;
+  margin-left: 52px;
   width: 335px;
 }
 #header_index p.logo a{
@@ -288,7 +296,11 @@ color:#f58520;
 #main_index_right_top form input:last-child,
 #travel_search input:last-child,
 #inscription form div:last-child input,
-#motdepasse form div:last-child input{
+#motdepasse form div:last-child input,
+#profil_col_gauche a,
+#contenu_profil table tr td.col_option a,
+#profil_col_droite .new_travel,
+#edit_profil form div:last-child input{
 float:right;
 border:1px solid #dd6a00;
 color:#ffffff;
@@ -325,7 +337,11 @@ background: linear-gradient(top,#f99b07,#e16c01);
 #main_index_right_top form input:last-child:hover,
 #travel_search input:last-child:hover,
 #inscription form div:last-child input:hover,
-#motdepasse form div:last-child input:hover{
+#motdepasse form div:last-child input:hover,
+#profil_col_gauche a:hover,
+#contenu_profil table tr td.col_option a:hover,
+#profil_col_droite .new_travel:hover,
+#edit_profil form div:last-child input:hover{
 /* Anciens navigateurs */
 background: #f99b07 url("gradient-bg.png") repeat-x top;
 -o-background-size: 100% 100%;
@@ -382,7 +398,9 @@ background: linear-gradient(top,#e16c01,#f99b07);
 /******************************************************************************/
 #inscription,
 #motdepasse,
-#search {
+#search,
+#profil,
+#edit_profil {
   background: url("fond_haut.png") no-repeat scroll 0 top transparent;
   margin: 0 auto;
   width: 742px;
@@ -390,9 +408,15 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #contenu_inscription,
-#contenu_motdepasse{
+#contenu_motdepasse,
+#contenu_profil,
+#contenu_edit_profil{
   background: url("fond_bas.png") no-repeat scroll 0 bottom transparent;
   height: 340px;
+}
+
+#contenu_edit_profil{
+  height: 380px;
 }
 
 #contenu_search {
@@ -404,7 +428,10 @@ background: linear-gradient(top,#e16c01,#f99b07);
   height: 190px;
 }
 
-#inscription h1, #motdepasse h1, #contenu_search h1 {
+#inscription h1, 
+#motdepasse h1, 
+#contenu_search h1,
+#contenu_edit_profil h1 {
   border-bottom: 1px solid #F58520;
   color: #F58520;
   font-size: 24px;
@@ -416,13 +443,15 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #inscription form,
-#motdepasse form {
+#motdepasse form,
+#edit_profil form {
   margin-left: 131px;
   width: 378px;
 }
 
 #inscription form label,
-#motdepasse form label {
+#motdepasse form label,
+#edit_profil form label {
   color: #6F7575;
   display: block;
   float: left;
@@ -433,20 +462,27 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #inscription form input,
-#motdepasse form input {
+#motdepasse form input,
+#edit_profil form input {
   border: 1px solid #BEBEBE;
   color: #818181;
   font-size: 12px;
   font-style: italic;
   height: 21px;
-  margin-bottom: 10px;
   margin-left: 10px;
   padding: 2px;
   width: 212px;
 }
 
+#inscription form div,
+#motdepasse form div,
+#edit_profil form div{
+  margin-bottom: 10px;
+}
+
 #inscription form div:last-child input,
-#motdepasse form div:last-child input {
+#motdepasse form div:last-child input,
+#edit_profil form div:last-child input {
   font-size: 16px;
   height: 28px;
   padding-bottom: 5px;
@@ -463,35 +499,200 @@ background: linear-gradient(top,#e16c01,#f99b07);
 /******************************************************************************/
 /*********************************PAGE RECHERCHE*******************************/
 /******************************************************************************/
-#contenu_search table {
+#contenu_search table,
+.pagination {
   margin: 0 auto;
   width: 630px;
 }
 
-#contenu_search table tr{
+.pagination{
+	margin-top:10px;
+	color: #A6A6A6;
+	font-size:12px;
+}
+
+.pagination a{
+	color: #F58520;
+}
+
+#contenu_search table tr,
+#contenu_profil table tr{
   border-bottom:1px dashed #b2b2b2;
 }
 
-#contenu_search table tr td{
-  vertical-align:top;
-  padding-top:10px;
-  padding-bottom:10px;
+#contenu_search table tr td,
+#contenu_profil table tr td{
+	vertical-align:top;
+	padding-top:10px;
+	padding-bottom:10px;
+	color: #A6A6A6;
+	font-size: 14px;
 }
 
-#contenu_search table tr td h2{
+#contenu_search table tr td:last-child{
+	text-align:right;
+}
+
+#contenu_search table tr td h2 a,
+#contenu_profil table tr td h3 a{
   color:#a0a0a0;
   font-size:24px;
+  display:block;
 }
 
-#contenu_search table tr td.col_photo{
+#contenu_search table tr td a,
+#contenu_profil table tr td a{
+	color: #F58520;
+    font-family: arial;
+    font-size: 12px;
+}
+
+#contenu_search table tr td p span,
+#contenu_profil table tr td p span{
+	color: #F58520;
+}
+
+#contenu_search table tr td.col_photo,
+#contenu_profil table tr td.col_photo{
 	width:110px;
 }
 
-#contenu_search table tr td.col_photo a{
+#contenu_search table tr td.col_photo a,
+#contenu_profil table tr td.col_photo a{
 	width:100px;
 	height:76px;
 	display:block;
 	overflow: hidden;
+}
+
+/******************************************************************************/
+/*********************************PAGE PROFIL**********************************/
+/******************************************************************************/
+#profil h1{
+	font-size:24px;
+	color:#f58520;
+	border-bottom:1px solid #f58520;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	width: 630px;
+}
+
+#profil h2{
+	font-size:24px;
+	color:#a0a0a0;
+	border-bottom:1px solid #a0a0a0;
+	margin-bottom:10px;
+}
+
+#profil_col_gauche {
+  float: left;
+  margin-left: 56px;
+  width: 145px;
+}
+
+#profil_col_gauche img{
+  max-width:145px;
+  width:145px;
+}
+
+#profil_col_gauche a,
+#profil_col_droite .new_travel {
+  display: block;
+  height: 15px;
+  margin-top: 5px;
+  padding-top: 3px;
+  text-align: center;
+  width: 60px;
+}
+
+#profil_col_droite .new_travel {
+  width: 80px;
+}
+
+#profil_col_gauche a:hover,
+#contenu_profil table tr td.col_option a:hover,
+#profil_col_droite .new_travel:hover{
+	text-decoration:none;
+}
+
+#profil_col_droite {
+  float: left;
+  margin-left: 19px;
+  width: 465px;
+}
+
+#contenu_profil table{
+	position:relative;
+	top:-10px;
+}
+
+#contenu_profil table tr td.col_desc {
+  width: 272px;
+}
+
+#contenu_profil table tr td.col_desc p{
+	margin-bottom:5px;
+}
+
+#contenu_profil table tr td.col_option a{
+	display: block;
+  height: 15px;
+  margin-top: 5px;
+  padding-top: 3px;
+  text-align: center;
+  width: 80px;
+}
+
+#contenu_profil table tr td.col_option a:last-child {
+	/* Anciens navigateurs */
+	background: #a20d06 url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Navigateurs récents */
+	background: -webkit-gradient(linear,left top, left bottom,from(#dc5308),to(#a20d06));
+	background: -webkit-linear-gradient(top,#dc5308,#a20d06);
+	background: -moz-linear-gradient(top,#dc5308,#a20d06);
+	background: -o-linear-gradient(top,#dc5308,#a20d06);
+	background: linear-gradient(top,#dc5308,#a20d06);
+}
+
+#contenu_profil table tr td.col_option a:last-child:hover {
+	/* Anciens navigateurs */
+	background: #dc5308 url("gradient-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Navigateurs récents */
+	background: -webkit-gradient(linear,left top, left bottom,from(#a20d06),to(#dc5308));
+	background: -webkit-linear-gradient(top,#a20d06,#dc5308);
+	background: -moz-linear-gradient(top,#a20d06,#dc5308);
+	background: -o-linear-gradient(top,#a20d06,#dc5308);
+	background: linear-gradient(top,#a20d06,#dc5308);
+}
+
+#edit_profil form i {
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  text-align: right;
+  color:#F58520;
+}
+
+#edit_profil .suppr_compte{
+  font-size: 12px;
+  left: 285px;
+  position: relative;
+  top: 59px;
+  color:#6F7575;
+}
+
+#edit_profil .suppr_compte a{
+  color:#F58520;
 }
 
 /******************************************************************************/
@@ -563,7 +764,7 @@ color:#fff;
 float:left;
 }
 
-.derniers_slider_event_texte .name{
+.derniers_slider_event_texte .name a{
 font-family:arial;
 font-size:10px;
 color:#f58520;
