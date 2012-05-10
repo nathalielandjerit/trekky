@@ -144,25 +144,10 @@ a:hover{
   margin-bottom:0px;
 }
 
-#travel_search input:last-child{
-    border:none;
-    color:#fff;
-    background: transparent url(searchbar_ok_index_down.jpg) no-repeat;
-    width:25px;
-    height:23px;
-    padding:0px;
-}
-
-#travel_search input:last-child:hover {
-cursor:pointer;
-background-image: url(searchbar_ok_index_up.jpg);
-}
-
 /******************************************************************************/
 /**************************************CONTENUE********************************/
 /******************************************************************************/
 #contenu{
-	height:420px;
 	margin:auto;
 	background-image:url(background.jpg);
 	background-repeat:no-repeat;
@@ -198,6 +183,10 @@ font-size:14px;
 color:#a6a6a6;
 }
 
+.description{
+	margin-top:24px;
+}
+
 #main_index_left h1 {
   border-bottom: 1px solid #A0A0A0;
   color: #A6A6A6;
@@ -210,10 +199,17 @@ color:#a6a6a6;
 }
 
 .img_trek_du_jour{
-width:337px;
-height:253px;
+width:336px;
+height:252px;
 float:left;
 margin-right:28px;
+}
+
+.img_trek_du_jour a{
+width:336px;
+height:252px;
+overflow:hidden;
+display:block;
 }
 
 .title_trek_du_jour{
@@ -279,7 +275,8 @@ font-size:12px;
 color:#f58520;
 }
 
-#main_index_right_top form input:last-child{
+#main_index_right_top form input:last-child,
+#travel_search input:last-child{
 float:right;
 border:1px solid #dd6a00;
 color:#ffffff;
@@ -304,7 +301,16 @@ background: -o-linear-gradient(top,#f99b07,#e16c01);
 background: linear-gradient(top,#f99b07,#e16c01);
 }
 
-#main_index_right_top form input:last-child:hover{
+#travel_search input:last-child {
+  height: 24px;
+  margin-left: 8px;
+  margin-top: 8px;
+  padding-bottom: 10px;
+  padding-right: 4px;
+}
+
+#main_index_right_top form input:last-child:hover,
+#travel_search input:last-child:hover{
 /* Anciens navigateurs */
 background: #f99b07 url("gradient-bg.png") repeat-x top;
 -o-background-size: 100% 100%;
@@ -356,10 +362,83 @@ background: linear-gradient(top,#e16c01,#f99b07);
   text-shadow: 1px 1px 2px #000000;
 }
 
+/******************************************************************************/
+/*********************************PAGE INSCRIPTION*****************************/
+/******************************************************************************/
 
+/******************************************************************************/
+/**************************************FOOTER**********************************/
+/******************************************************************************/
 #footer{
 	height:222px;
 	margin:auto;
 	background-image:url(footer_index.jpg);
 	background-repeat:repeat-x;
+}
+
+#footer .derniers{
+width:1040px;
+height:222px;
+margin-left: auto;
+margin-right: auto;
+}
+
+#footer h1{
+font-family:arial;
+font-size:24px;
+color:#fff;
+width:1040px;
+padding-top:25px;
+padding-bottom:10px;
+border-bottom: 1px solid #898989;
+
+}
+
+#derniers_slider{
+clear:both;
+width:1040px;
+height:135px;
+padding-top:20px;
+}
+
+.derniers_slider_event{
+width:154px;
+float:left;
+padding-left:17px;
+}
+
+.derniers_slider_event:nth-child(1){
+padding-left:0px;
+}
+
+.derniers_slider_event_img{
+width:154px;
+height:75px;
+float:left;
+padding-bottom:5px;
+margin-bottom:8px;
+border-bottom: 1px solid #898989;
+}
+
+.derniers_slider_event_img a{
+width:154px;
+height:75px;
+display:block;
+overflow: hidden;
+}
+
+.derniers_slider_event_texte .pays{
+clear:both;
+font-family:arial;
+font-size:14px;
+color:#fff;
+float:left;
+}
+
+.derniers_slider_event_texte .name{
+font-family:arial;
+font-size:10px;
+color:#f58520;
+float:right;
+padding-top:2px;
 }

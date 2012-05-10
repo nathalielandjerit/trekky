@@ -7,7 +7,9 @@ class Travel < ActiveRecord::Base
 	validate :mydate_is_date?
 	validate :start_travel_lower_end_travel
 	
-	has_attached_file :illustration, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "default_:style_travel.jpg"
+	has_attached_file :illustration, :styles => { :medium => "336x336>", :thumb => "154x154>" }, :default_url => "default_:style_travel.jpg"
+
+	validates_attachment_content_type :illustration, :content_type => ["image/jpg","image/jpeg","image/png","image/gif"], :message => "Le format du fichier n'est pas bon"
 
 	  private
 
