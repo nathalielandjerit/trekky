@@ -54,16 +54,20 @@
             <div class="derniers">
                 <h1>Derniers treks partagés</h1>
                 <div id="derniers_slider">
-                    <% @last_travel_ouai.each do |travel| %>
-                        <div class="derniers_slider_event">
-                            <div class="derniers_slider_event_img">
-                                <%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %>
+                    <% if @last_travel_footer.count > 0 %>
+                        <% @last_travel_footer.each do |travel| %>
+                            <div class="derniers_slider_event">
+                                <div class="derniers_slider_event_img">
+                                    <%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %>
+                                </div>
+                                <div class="derniers_slider_event_texte">
+                                    <p class="pays"><%= travel.name %></p>
+                                    <p class="name"><%= link_to "par "+travel.user.pseudo, travel.user%></p>
+                                </div>
                             </div>
-                            <div class="derniers_slider_event_texte">
-                                <p class="pays"><%= travel.name %></p>
-                                <p class="name"><%= link_to "par "+travel.user.pseudo, travel.user%></p>
-                            </div>
-                        </div>
+                        <% end %>
+                    <% else %>
+                        Rien pour l'instant !
                     <% end %>
                 </div>
             </div>

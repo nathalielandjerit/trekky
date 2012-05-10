@@ -2,29 +2,28 @@
 	<div id="main_index_left">
 			<h1>Le trek du jour</h1>
 
-			
-			<div class="img_trek_du_jour">
-				<%= link_to (image_tag @last_activity.travel.illustration.url(:medium)), travel_activities_path(@last_activity.travel) %>
-			</div>
-			<div class="description_trek_du_jour">
-				<div class="title_trek_du_jour">
-					<p class="title_trek_du_jour_date">
-						Du <span><%= @last_activity.travel.start_travel %></span><br/>
-						Au <span><%= @last_activity.travel.end_travel %></span>
-					</p>
-					<h2><%= @last_activity.travel.name %></h2>
+			<% if !@last_activity.nil? %>
+				<div class="img_trek_du_jour">
+					<%= link_to (image_tag @last_activity.travel.illustration.url(:medium)), travel_activities_path(@last_activity.travel) %>
+				</div>
+				<div class="description_trek_du_jour">
+					<div class="title_trek_du_jour">
+						<p class="title_trek_du_jour_date">
+							Du <span><%= @last_activity.travel.start_travel %></span><br/>
+							Au <span><%= @last_activity.travel.end_travel %></span>
+						</p>
+						<h2><%= @last_activity.travel.name %></h2>
 
-					<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
-					<div class="description">
-						<p><%= truncate(@last_activity.description, :length => 450) %></p>
-						<p id="savoirplus"><%= link_to "Savoir plus", travel_activities_path(@last_activity.travel)%></p>
+						<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
+						<div class="description">
+							<p><%= truncate(@last_activity.description, :length => 450) %></p>
+							<p id="savoirplus"><%= link_to "Savoir plus", travel_activities_path(@last_activity.travel)%></p>
+						</div>
 					</div>
 				</div>
-			</div>
-
-
-		<!--<%= @last_activity.travel.start_country %>
-		<%= @last_activity.travel.end_country %>-->
+			<% else %>
+				Pas de trek du jour !
+			<% end %>
 	</div>
 
 	<div id="main_index_right">

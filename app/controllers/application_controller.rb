@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	end
 
   def last_travel
-    @last_travel_ouai = Travel.limit(7).order('created_at desc')
+    @last_travel_footer = Travel.limit(7).order('created_at desc')
   end
 
 
@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 	
-  private
 
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || current_user
   end
+
 end
