@@ -14,6 +14,8 @@
 	    <th>Start travel</th>
 	    <th>End travel</th>
 	    <th></th>
+	    <th></th>
+	    <th></th>
  	</tr>
   <tr>
     <td><%= @last_activity.travel.name %></td>
@@ -21,6 +23,8 @@
     <td><%= @last_activity.travel.end_country %></td>
     <td><%= @last_activity.travel.start_travel %></td>
     <td><%= @last_activity.travel.end_travel %></td>
+    <td><%= @last_activity.description %></td>
+    <td><%= @last_activity.travel.user.pseudo %></td>
     <td><%= link_to (image_tag @last_activity.travel.illustration.url(:thumb)), travel_activities_path(@last_activity.travel) %></td>
   </tr>
 </table>
