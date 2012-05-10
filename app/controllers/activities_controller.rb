@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class ActivitiesController < ApplicationController
 
   before_filter :get_travel
@@ -40,9 +41,9 @@ class ActivitiesController < ApplicationController
           end
         end
         if params[:commit] == "Envoie et continuer"
-          redirect_to new_travel_activity_path(@travel.id)
+          redirect_to new_travel_activity_path(@travel.id), notice: 'Votre activité a bien été créée ! Vous pouvez en ajouter une nouvelle dès à présent.'
         else
-          redirect_to travel_activities_path(@activity.travel_id), notice: 'Activity was successfully created.'
+          redirect_to travel_activities_path(@activity.travel_id), notice: 'Votre activité a bien été créée !'
         end
       else
         render action: "new"
@@ -53,7 +54,7 @@ class ActivitiesController < ApplicationController
     @activity = @travel.activities.find(params[:id])
    
       if @activity.update_attributes(params[:activity])
-        redirect_to travel_activities_path(@activity.travel_id), notice: 'Activity was successfully updated.'
+        redirect_to travel_activities_path(@activity.travel_id), notice: 'Votre activité a bien été modifiée !'
       else
         render action: "edit"
       end
@@ -73,7 +74,7 @@ class ActivitiesController < ApplicationController
     unless params[:travel_id].blank?
       @travel = Travel.find(params[:travel_id])
     else
-      redirect_to root_url, :error => "What travel???"
+      redirect_to root_url, :error => "De quel trek parlez-vous ?"
     end
   end
 

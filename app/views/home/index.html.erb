@@ -13,7 +13,7 @@
 						Au <span><%= @last_activity.travel.end_travel %></span>
 					</p>
 					<h2><%= @last_activity.travel.name %></h2>
-					<h3>Par <%= @last_activity.travel.user.pseudo %></h3>
+					<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
 					<p><%= @last_activity.description %></p>
 				</div>
 			</div>

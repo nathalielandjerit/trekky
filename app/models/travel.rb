@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Travel < ActiveRecord::Base
 
 	belongs_to :user
@@ -13,16 +14,16 @@ class Travel < ActiveRecord::Base
 
 	  def mydate_is_date?
 	    if !self.start_travel.is_a?(Date)
-	      self.errors.add(:start_travel, 'must be a valid date') 
+	      self.errors.add(:start_travel, "Votre date de départ n'est pas du format JJ-MM-AAAA") 
 	    end
 	    if !self.end_travel.is_a?(Date)
-	      self.errors.add(:end_travel, 'must be a valid date') 
+	      self.errors.add(:end_travel, "Votre date de retour n'est pas du format JJ-MM-AAAA") 
 	    end
 	  end
 
 	  def start_travel_lower_end_travel
 	  	if !self.start_travel.nil? and !self.end_travel.nil? and self.start_travel > self.end_travel
-	  		self.errors.add(:start_travel, 'La date de depart doit etre inferieur a la date de retour')
+	  		self.errors.add(:start_travel, "La date de départ doit être inférieur à la date de retour")
 	  	end
 	  end
 

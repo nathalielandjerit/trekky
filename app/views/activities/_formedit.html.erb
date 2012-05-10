@@ -1,7 +1,7 @@
 <%= form_for([@travel, @activity]) do |f| %>
   <% if @activity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+      <h2><%= pluralize(@activity.errors.count, "erreur") %> ont été rencontrée(s) dans votre formulaire de modification d'une activité :</h2>
 
       <ul>
       <% @activity.errors.full_messages.each do |msg| %>

@@ -67,8 +67,20 @@ fr:
         travel: 
           attributes:
             name:
-              blank: "Vous devez choisir un nom pour votre périple"
+              blank: "Vous devez choisir un nom pour votre trek"
             start_country:
               blank: "Vous devez renseigner votre pays de départ"
             end_country:
               blank: "Vous devez renseigner votre pays d'arrivée"
+        activity: 
+          attributes:
+            name:
+              blank: "Vous devez indiquer le nom de votre activité"
+            description:
+              blank: "Vous devez décrire votre activité"
+            lieu:
+              blank: "Vous n'avez pas indiquer le lieu où se déroulait l'activité"
+            start_activity:
+              invalid_datetime: "Votre date de début d'activité est fausse" 
+            end_activity:
+              invalid_datetime: "Votre date de fin d'activité est fausse"

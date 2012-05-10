@@ -34,7 +34,7 @@
 			<td><%= link_to 'Show activities', travel_activities_path(travel) %></td>
 			<td><%= image_tag travel.illustration.url(:thumb) %></td>
 			<td><%= link_to 'Edit', edit_travel_path(travel) if can? :manage, travel %></td>
-			<td><%= link_to 'Destroy', travel, confirm: 'Are you sure?', method: :delete if can? :manage, travel %></td>
+			<td><%= link_to 'Destroy', travel, confirm: 'Etes-vous sûre de vouloir supprimer ce trek ?', method: :delete if can? :manage, travel %></td>
 			<td><%= link_to 'Add Activity', new_travel_activity_path(travel) if can? :manage, travel %></td>
 		</tr>
 		<% end %>

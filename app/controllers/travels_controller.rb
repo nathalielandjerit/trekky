@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class TravelsController < ApplicationController
 
   before_filter :authenticate_user!, :except => [:index, :show]
@@ -25,7 +26,7 @@ class TravelsController < ApplicationController
     @travel = @user.travels.new(params[:travel])
 
     if @travel.save
-      redirect_to new_travel_activity_path(@travel.id)
+      redirect_to new_travel_activity_path(@travel.id), notice: 'Votre trek a bien été créé ! Ajoutez maintenant vos activités !'
     else
       render action: "new"
     end
@@ -36,7 +37,7 @@ class TravelsController < ApplicationController
     @travel = Travel.find(params[:id])
 
     if @travel.update_attributes(params[:travel])
-      redirect_to current_user, notice: 'Travel was successfully updated.'
+      redirect_to current_user, notice: 'Votre trek a bien été modifié !'
     else
       render action: "edit"
     end

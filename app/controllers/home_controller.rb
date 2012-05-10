@@ -2,7 +2,6 @@ class HomeController < ApplicationController
 
 	def index
 		@last_activity = Activity.last
-		@last_travel = Travel.limit(7).order('created_at desc')
 	end
 
 

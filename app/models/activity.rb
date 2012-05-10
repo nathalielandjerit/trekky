@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Activity < ActiveRecord::Base
 
 	belongs_to :travel
@@ -17,7 +18,7 @@ class Activity < ActiveRecord::Base
 
 	  def start_activity_lower_end_activity
 	  	if !self.start_activity.nil? and !self.end_activity.nil? and self.start_activity > self.end_activity
-	  		self.errors.add(:start_activity, 'La date de debut de l\'activite doit etre inferieur a la date de fin de celle-ci')
+	  		self.errors.add(:start_activity, 'La date de début de l\'activité doit être inférieur à la date de fin de celle-ci')
 	  	end
 	  end
 

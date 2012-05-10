@@ -1,7 +1,7 @@
 <%= form_for(@travel) do |f| %>
   <% if @travel.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+      <h2><%= pluralize(@travel.errors.count, "erreur") %> ont été rencontrée(s) dans votre formulaire d'ajout de trek :</h2>
 
       <ul>
       <% @travel.errors.full_messages.each do |msg| %>
