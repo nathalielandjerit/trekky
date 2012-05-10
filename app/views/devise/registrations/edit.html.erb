@@ -1,28 +1,36 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div id="edit_profil">
+    <div id="contenu_edit_profil">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+        <h1>Editer mon profil</h1>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+        <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= devise_error_messages! %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+        <div><%= f.label :email %>
+        <%= f.email_field :email %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <div><%= f.label :password %> 
+            <%= f.password_field :password, :autocomplete => "off" %>
+            <i>(Ne rien mettre si vous ne voulez pas changer de mot de passe)</i>
+        </div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
 
-  <div>Avatar<br />
-  <%= f.file_field :avatar %></div>
+        <div><%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %></div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+        <div><%= f.label :current_password %> 
+            <%= f.password_field :current_password %>
+            <i>(Vous devez obligatoirement entrez votre mot de passe actuel)</i>
+        </div>
 
-<h3>Cancel my account</h3>
+        <div><%= f.label :avatar %>
+        <%= f.file_field :avatar %></div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+        <div><%= f.submit "Update" %></div>
+        <% end %>
 
-<%= link_to "Back", :back %>
+        <p class="suppr_compte">Pas content ? <%= link_to "Supprime ton compte", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+
+        <!--<%= link_to "Back", :back %>-->
+    </div>
+</div>

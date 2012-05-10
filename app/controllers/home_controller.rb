@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
 
 	def search
-   		@travels = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 2)
+   		@travels = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 5)
 	end
 
 
