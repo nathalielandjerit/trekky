@@ -37,6 +37,7 @@ class Devise::RegistrationsController < DeviseController
   # We need to use a copy of the resource because we don't want to change
   # the current user in place.
   def update
+
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
 
     if resource.update_with_password(params[resource_name])
@@ -103,5 +104,11 @@ class Devise::RegistrationsController < DeviseController
   def authenticate_scope!
     send(:"authenticate_#{resource_name}!", :force => true)
     self.resource = send(:"current_#{resource_name}")
+  end
+
+
+  # Overwriting the sign_out redirect path method
+  def after_update_path_for(resource_or_scope)
+    root_url
   end
 end

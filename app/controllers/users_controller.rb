@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 
   end
 
+  def update
+  	logger.info "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+  end
+
   def show
   	user_id = params[:id] || current_user.id
     @user = User.find(user_id)
