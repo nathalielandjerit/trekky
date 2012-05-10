@@ -32,7 +32,10 @@
                     <%= f.text_field :name_or_start_country_or_end_country_cont, :value => "Rechercher" %>
                     <%= f.submit("ok") %>
                 <% end %>
-
+                <a name="fb_share" type="icon_link" share_url="<%= request.url %>">Partager</a>
+                <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.url %>" data-lang="fr">Tweeter</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </div>
 
         </div>
@@ -55,7 +58,7 @@
                             </div>
                             <div class="derniers_slider_event_texte">
                                 <p class="pays"><%= travel.name %></p>
-                                <p class="name">par </p>
+                                <p class="name"><%= link_to "par "+travel.user.pseudo, travel.user%></p>
                             </div>
                         </div>
                     <% end %>

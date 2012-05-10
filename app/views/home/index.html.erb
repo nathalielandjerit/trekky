@@ -13,15 +13,11 @@
 						Au <span><%= @last_activity.travel.end_travel %></span>
 					</p>
 					<h2><%= @last_activity.travel.name %></h2>
-<<<<<<< HEAD
+
 					<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
-					<p><%= @last_activity.description %></p>
-=======
-					<h3>Par <%= @last_activity.travel.user.pseudo %></h3>
 					<div class="description">
 						<p><%= @last_activity.description %></p>
 					</div>
->>>>>>> 986fa5c3c9cd02a2ab118eb1073e499a7a74b0af
 				</div>
 			</div>
 
@@ -37,6 +33,7 @@
 				<%= link_to "(ou inscris-toi maintenant !)", new_user_registration_url %>
 			</div>
 			<%= form_for("user", :url => user_session_path) do |f| %>
+				<%= hidden_field_tag "provenance", "home" %>
 				<%= f.text_field :pseudo, :value => "Pseudo" %><br/>
 				<%= f.password_field :password, :value => "Mot de passe" %><br/>
 				<!--<%= f.check_box :remember_me %>

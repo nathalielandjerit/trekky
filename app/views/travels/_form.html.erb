@@ -4,8 +4,8 @@
       <h2><%= pluralize(@travel.errors.count, "erreur") %> ont été rencontrée(s) dans votre formulaire d'ajout de trek :</h2>
 
       <ul>
-      <% @travel.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @travel.errors.values.each do |msg| %>
+        <li><%= msg.first %></li>
       <% end %>
       </ul>
     </div>
