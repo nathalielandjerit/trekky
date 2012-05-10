@@ -16,7 +16,8 @@
 
 					<h3><%= link_to "Par "+@last_activity.travel.user.pseudo, @last_activity.travel.user%></h3>
 					<div class="description">
-						<p><%= @last_activity.description %></p>
+						<p><%= truncate(@last_activity.description, :length => 450) %></p>
+						<p id="savoirplus"><%= link_to "Savoir plus", travel_activities_path(@last_activity.travel)%></p>
 					</div>
 				</div>
 			</div>
