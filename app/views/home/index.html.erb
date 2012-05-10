@@ -1,68 +1,50 @@
 <div id="main_index">
+	<div id="main_index_left">
+			<h1>Le trek du jour</h1>
 
-	<h1>Log in</h1>
+			
+			<div class="img_trek_du_jour">
+				<%= link_to (image_tag @last_activity.travel.illustration.url(:medium)), travel_activities_path(@last_activity.travel) %>
+			</div>
+			<div class="description_trek_du_jour">
+				<div class="title_trek_du_jour">
+					<p class="title_trek_du_jour_date">
+						Du <span><%= @last_activity.travel.start_travel %></span><br/>
+						Au <span><%= @last_activity.travel.end_travel %></span>
+					</p>
+					<h2><%= @last_activity.travel.name %></h2>
+					<h3>Par <%= @last_activity.travel.user.pseudo %></h3>
+					<p><%= @last_activity.description %></p>
+				</div>
+			</div>
 
-	<%= link_to "Pas encore incrit", new_user_registration_url %>
 
+		<!--<%= @last_activity.travel.start_country %>
+		<%= @last_activity.travel.end_country %>-->
+	</div>
 
-<h2>Last travel</h2>
-<table>
-	<tr>
-	    <th>Name</th>
-	    <th>Start country</th>
-	    <th>End country</th>
-	    <th>Start travel</th>
-	    <th>End travel</th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
- 	</tr>
-  <tr>
-    <td><%= @last_activity.travel.name %></td>
-    <td><%= @last_activity.travel.start_country %></td>
-    <td><%= @last_activity.travel.end_country %></td>
-    <td><%= @last_activity.travel.start_travel %></td>
-    <td><%= @last_activity.travel.end_travel %></td>
-    <td><%= @last_activity.description %></td>
-    <td><%= @last_activity.travel.user.pseudo %></td>
-    <td><%= link_to (image_tag @last_activity.travel.illustration.url(:thumb)), travel_activities_path(@last_activity.travel) %></td>
-  </tr>
-</table>
+	<div id="main_index_right">
+		<div id="main_index_right_top">
+			<div class="h1_main_index_right_top">
+				<h1>Connectes-toi</h1>
+				<%= link_to "(ou inscris-toi maintenant !)", new_user_registration_url %>
+			</div>
+			<%= form_for("user", :url => user_session_path) do |f| %>
+				<%= f.text_field :pseudo, :value => "Pseudo" %><br/>
+				<%= f.password_field :password, :value => "Mot de passe" %><br/>
+				<!--<%= f.check_box :remember_me %>
+				<%= f.label :remember_me %>-->
+				<%= link_to "Forgot your password?", new_password_path('user') %><br/>
+				<%= f.submit 'Connexion' %>
+			<% end %>
+		</div>
 
-<h2>Derniers</h2>
-<table>
-	<tr>
-	    <th>Name</th>
-	    <th>Start country</th>
-	    <th>End country</th>
-	    <th>Start travel</th>
-	    <th>End travel</th>
-	    <th></th>
- 	</tr>
-<% @last_travel.each do |travel| %>
-  <tr>
-    <td><%= travel.name %></td>
-    <td><%= travel.start_country %></td>
-    <td><%= travel.end_country %></td>
-    <td><%= travel.start_travel %></td>
-    <td><%= travel.end_travel %></td>
-    <td><%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %></td>
-  </tr>
-<% end %>
-</table>
+		<div id="main_index_right_bottom">
+			<%= link_to "Ajouter un trek", new_travel_url, :id => "btn_ajouter" %>
+			<div id="btn_facilement">Facilement et Rapidement</div>
+		</div>
+	</div>
 
-	<%= form_for("user", :url => user_session_path) do |f| %>
-	<%= f.label :pseudo %>
-	  <%= f.text_field :pseudo %>
-	  <%= f.label :password %>
-	  <%= f.password_field :password %>
-	  <!--<%= f.check_box :remember_me %>
-	  <%= f.label :remember_me %>-->
-	  <%= f.submit 'Sign in' %>
-	  <%= link_to "Forgot your password?", new_password_path('user') %>
-	<% end %>
-
-	<%= link_to "Je partage mon voyage", new_travel_url %>
-
+	
 </div>
 

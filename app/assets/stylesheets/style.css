@@ -48,6 +48,13 @@ img{
 	border:none;
 }
 
+a{
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
 /* CSS TREKKY */
 
 /******************************************************************************/
@@ -98,7 +105,6 @@ img{
 
 #header_index ul li a{
 	color:#ffffff;
-	text-decoration:none;
 	font-size:12px;
 }
 
@@ -122,13 +128,20 @@ img{
   top: 8px;
 }
 
-#travel_search input {
+#travel_search input,
+#user_pseudo,
+#user_password {
   border: 1px solid #BEBEBE;
   color: #818181;
   font-size: 12px;
   font-style: italic;
   height: 21px;
-  padding: 1px 0 0;
+  padding: 1px 0 0 0;
+  margin-bottom:10px;
+}
+
+#user_password {
+  margin-bottom:0px;
 }
 
 #travel_search input:last-child{
@@ -146,9 +159,8 @@ background-image: url(searchbar_ok_index_up.jpg);
 }
 
 /******************************************************************************/
+/**************************************CONTENUE********************************/
 /******************************************************************************/
-/******************************************************************************/
-
 #contenu{
 	height:420px;
 	margin:auto;
@@ -156,12 +168,194 @@ background-image: url(searchbar_ok_index_up.jpg);
 	background-repeat:no-repeat;
 }
 
+/******************************************************************************/
+/*********************************INDEX - NON CO*******************************/
+/******************************************************************************/
 #main_index {
   background: url("background_index.png") no-repeat scroll center 0 transparent;
   height: 420px;
   margin: auto;
   width: 1035px;
 }
+
+
+/*****************COLONNE GAUCHE*******************/
+
+#main_index_left{
+	width:628px;
+	height:316px;
+	float:left;
+	padding:40px;
+	padding-right:75px;
+}
+
+.description_trek_du_jour{
+float:left;
+width:257px;
+height:263px;
+font-family:arial;
+font-size:14px;
+color:#a6a6a6;
+}
+
+#main_index_left h1 {
+  border-bottom: 1px solid #A0A0A0;
+  color: #A6A6A6;
+  font-family: arial;
+  font-size: 24px;
+  margin-bottom: 17px;
+  padding-bottom: 5px;
+  padding-top: 13px;
+  width: 628px;
+}
+
+.img_trek_du_jour{
+width:337px;
+height:253px;
+float:left;
+margin-right:28px;
+}
+
+.title_trek_du_jour{
+width:257px;
+margin-bottom:30px;
+}
+
+.title_trek_du_jour h2{
+font-family:arial;
+font-size:24px;
+color:#a6a6a6;
+}
+
+.title_trek_du_jour h3{
+font-family:arial;
+font-size:12px;
+color:#f58520;
+float:left;
+}
+
+.title_trek_du_jour_date {
+  float: right;
+  font-family: arial;
+  font-size: 12px;
+  line-height: 16px;
+  padding-top: 2px;
+}
+
+.title_trek_du_jour_date span{
+color:#f58520;
+}
+
+/*****************COLONNE DROITE*******************/
+
+#main_index_right {
+  float: left;
+  height: 372px;
+  margin-left: 8px;
+  margin-top: 35px;
+  padding-left: 55px;
+  width: 197px;
+}
+
+#main_index_right_top{
+	height:219px;
+}
+
+.h1_main_index_right_top{
+	margin-bottom:10px;
+}
+
+.h1_main_index_right_top h1{
+font-family:arial;
+font-size:24px;
+color:#a6a6a6;
+padding-top:24px;
+}
+
+.h1_main_index_right_top a,
+#main_index_right_top form a{
+font-family:arial;
+font-size:12px;
+color:#f58520;
+}
+
+#main_index_right_top form input:last-child{
+float:right;
+border:1px solid #dd6a00;
+color:#ffffff;
+font-size:12px;
+font-style:italic;
+margin-top: 18px;
+padding-bottom: 2px;
+padding-left: 2px;
+text-shadow: 1px 1px 2px #000000;
+cursor:pointer;
+/* Anciens navigateurs */
+background: #e16c01 url("gradient-bg.png") repeat-x top;
+-o-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+background-size: 100% 100%;
+/* Navigateurs récents */
+background: -webkit-gradient(linear,left top, left bottom,from(#f99b07),to(#e16c01));
+background: -webkit-linear-gradient(top,#f99b07,#e16c01);
+background: -moz-linear-gradient(top,#f99b07,#e16c01);
+background: -o-linear-gradient(top,#f99b07,#e16c01);
+background: linear-gradient(top,#f99b07,#e16c01);
+}
+
+#main_index_right_top form input:last-child:hover{
+/* Anciens navigateurs */
+background: #f99b07 url("gradient-bg.png") repeat-x top;
+-o-background-size: 100% 100%;
+-moz-background-size: 100% 100%;
+-webkit-background-size: 100% 100%;
+background-size: 100% 100%;
+/* Navigateurs récents */
+background: -webkit-gradient(linear,left top, left bottom,from(#e16c01),to(#f99b07));
+background: -webkit-linear-gradient(top,#e16c01,#f99b07);
+background: -moz-linear-gradient(top,#e16c01,#f99b07);
+background: -o-linear-gradient(top,#e16c01,#f99b07);
+background: linear-gradient(top,#e16c01,#f99b07);
+}
+
+#main_index_right_bottom {
+  height: 153px;
+  left: -53px;
+  position: relative;
+  width: 284px;
+  background:url(btn_ajouter_trek_down.png) no-repeat 0 0 transparent;
+}
+
+#main_index_right_bottom:hover {
+  background:url(btn_ajouter_trek_up.png) no-repeat 0 0 transparent;
+}
+
+#main_index_right_bottom a {
+  display: block;
+  height: 36px;
+  width: 284px;
+  text-decoration:none !important;
+}
+
+#btn_ajouter {
+  color: #666666;
+  font-family: arial;
+  font-size: 18px;
+  padding-left: 35px;
+  padding-top: 54px;
+  text-transform: uppercase;
+}
+
+#btn_facilement {
+  color: white;
+  font-family: arial;
+  font-size: 14px;
+  padding-left: 60px;
+  padding-top: 7px;
+  text-shadow: 1px 1px 2px #000000;
+}
+
 
 #footer{
 	height:222px;
