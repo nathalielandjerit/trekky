@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
     end
     @comment = @activity.comments.new(params[:comment])
     if @comment.save
-      flash[:success] = "bravo tru as ecrit un commentaire"
+      flash[:success] = "Votre commentaire à bien été enregistrer"
       redirect_to [@activity.travel, @activity]
     else
       render "activities/show"
