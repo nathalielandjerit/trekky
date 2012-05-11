@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :start_country %><br />
+    <%= f.label :start_country %>
     <%= f.text_field :start_country %>
   </div>
   <div class="field">
-    <%= f.label :end_country %><br />
+    <%= f.label :end_country %>
     <%= f.text_field :end_country %>
   </div>
   <div class="field">
-    <%= f.label :start_travel %><br />
+    <%= f.label :start_travel %>
     <%= f.text_field :start_travel, :class => 'date_picker' %>
   </div>
   <div class="field">
-    <%= f.label :end_travel %><br />
+    <%= f.label :end_travel %>
     <%= f.text_field :end_travel, :class => 'date_picker' %>
   </div>
   <div>
-    Image album<br />
+    <%= f.label :illustration %>
     <%= f.file_field :illustration %>
   </div>
   <div class="actions">

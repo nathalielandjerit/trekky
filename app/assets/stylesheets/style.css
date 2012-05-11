@@ -300,7 +300,8 @@ color:#f58520;
 #profil_col_gauche a,
 #contenu_profil table tr td.col_option a,
 #profil_col_droite .new_travel,
-#edit_profil form div:last-child input{
+#edit_profil form div:last-child input,
+#edit_trek form div.actions input{
 float:right;
 border:1px solid #dd6a00;
 color:#ffffff;
@@ -341,7 +342,8 @@ background: linear-gradient(top,#f99b07,#e16c01);
 #profil_col_gauche a:hover,
 #contenu_profil table tr td.col_option a:hover,
 #profil_col_droite .new_travel:hover,
-#edit_profil form div:last-child input:hover{
+#edit_profil form div:last-child input:hover,
+#edit_trek form div.actions input:hover{
 /* Anciens navigateurs */
 background: #f99b07 url("gradient-bg.png") repeat-x top;
 -o-background-size: 100% 100%;
@@ -400,38 +402,33 @@ background: linear-gradient(top,#e16c01,#f99b07);
 #motdepasse,
 #search,
 #profil,
-#edit_profil {
+#edit_profil,
+#edit_trek {
   background: url("fond_haut.png") no-repeat scroll 0 top transparent;
   margin: 0 auto;
   width: 742px;
   padding-top:16px;
+
 }
 
 #contenu_inscription,
 #contenu_motdepasse,
+#contenu_edit_profil,
+#contenu_edit_trek,
 #contenu_profil,
-#contenu_edit_profil{
+#contenu_search{
   background: url("fond_bas.png") no-repeat scroll 0 bottom transparent;
-  height: 340px;
+  padding-bottom: 30px;
 }
 
-#contenu_edit_profil{
-  height: 380px;
-}
 
-#contenu_search {
-  background: url("fond_bas.png") no-repeat scroll 0 bottom transparent;
-  padding-bottom:40px;
-}
 
-#contenu_motdepasse {
-  height: 190px;
-}
 
 #inscription h1, 
 #motdepasse h1, 
 #contenu_search h1,
-#contenu_edit_profil h1 {
+#contenu_edit_profil h1,
+#contenu_edit_trek h1 {
   border-bottom: 1px solid #F58520;
   color: #F58520;
   font-size: 24px;
@@ -444,14 +441,16 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #inscription form,
 #motdepasse form,
-#edit_profil form {
+#edit_profil form,
+#edit_trek form {
   margin-left: 131px;
   width: 378px;
 }
 
 #inscription form label,
 #motdepasse form label,
-#edit_profil form label {
+#edit_profil form label,
+#edit_trek form label {
   color: #6F7575;
   display: block;
   float: left;
@@ -463,7 +462,8 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #inscription form input,
 #motdepasse form input,
-#edit_profil form input {
+#edit_profil form input,
+#edit_trek form input {
   border: 1px solid #BEBEBE;
   color: #818181;
   font-size: 12px;
@@ -476,13 +476,15 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #inscription form div,
 #motdepasse form div,
-#edit_profil form div{
+#edit_profil form div,
+#edit_trek form div{
   margin-bottom: 10px;
 }
 
 #inscription form div:last-child input,
 #motdepasse form div:last-child input,
-#edit_profil form div:last-child input {
+#edit_profil form div:last-child input,
+#edit_trek form div.actions input {
   font-size: 16px;
   height: 28px;
   padding-bottom: 5px;
@@ -770,4 +772,8 @@ font-size:10px;
 color:#f58520;
 float:right;
 padding-top:2px;
+}
+
+.spacer {
+  clear: both;
 }
