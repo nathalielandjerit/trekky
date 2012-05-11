@@ -16,10 +16,10 @@
 				<table>
 					<% @travels.each do |travel| %>
 					<tr>
-						<td class="col_photo"><%= link_to (image_tag travel.illustration.url(:thumb)), travel %></td>
-						<td class="col_desc"><h3><%= link_to travel.name, travel %></h3>
+						<td class="col_photo"><%= link_to (image_tag travel.illustration.url(:thumb)), travel_activities_path(travel) %></td>
+						<td class="col_desc"><h3><%= link_to travel.name, travel_activities_path(travel) %></h3>
 							<p>Du <span><%= travel.start_travel %></span> Au <span><%= travel.end_travel %></span></p>
-							Dépars : <%= travel.start_country %> <br/>
+							Départ : <%= travel.start_country %> <br/>
 							Arrivée : <%= travel.end_country %>
 						</td>
 						<!--<td><%= link_to 'Show', travel %></td>
@@ -36,7 +36,7 @@
 
 			<br />
 
-			<%= link_to 'New Travel', new_travel_path, :class => "new_travel" %>
+			<%= link_to 'Nouveau Trek', new_travel_path, :class => "new_travel" %>
 		</div>
 		<div class="spacer"></div>
 

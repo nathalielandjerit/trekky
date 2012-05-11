@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <label for="travel_name">Nom du trek</label>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :start_country %>
+    <label for="travel_start_country">Pays de départ</label>
     <%= f.text_field :start_country %>
   </div>
   <div class="field">
-    <%= f.label :end_country %>
+    <label for="travel_end_country">Pays d'arrivé</label>
     <%= f.text_field :end_country %>
   </div>
   <div class="field">
-    <%= f.label :start_travel %>
+    <label for="travel_start_travel">Date de début</label>
     <%= f.text_field :start_travel, :class => 'date_picker' %>
   </div>
   <div class="field">
-    <%= f.label :end_travel %>
+    <label for="travel_end_travel">Date de fin</label>
     <%= f.text_field :end_travel, :class => 'date_picker' %>
   </div>
   <div>
@@ -36,6 +36,6 @@
     <%= f.file_field :illustration %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enregistrer"%>
   </div>
 <% end %>

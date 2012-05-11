@@ -10,8 +10,33 @@
         <%= javascript_include_tag "jquery-ui-timepicker-addon-0.6.2" %>
 
         <%= csrf_meta_tags %>
+        
     </head>
     <body>
+                    <% if notice %>
+                        <div class="flash_message">
+                            <div class="flash">
+                                <div>
+                                    <h1>Trekky</h1>
+                                    <%= notice %>
+                                    <input type="buttom" value="OK" onClick="window.location.reload()">
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+
+                    <% if alert %>
+                        <div class="flash_message">
+                            <div class="flash">
+                                <div>
+                                    <h1>Trekky</h1>
+                                    <%= alert %>
+                                    <input type="buttom" value="OK" onClick="window.location.reload()">
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+
         <div id="background_header_index">
             <div id="header_index">
                 <div id="reseaux">
@@ -44,8 +69,6 @@
         </div>
 
         <div id="contenu">
-            <p class="notice"><%= notice %></p>
-            <p class="alert"><%= alert %></p>
 
             <%= yield %>
         </div>

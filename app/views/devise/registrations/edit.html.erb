@@ -9,16 +9,20 @@
         <div><%= f.label :email %>
         <%= f.email_field :email %></div>
 
-        <div><%= f.label :password %> 
+        <div><%= f.label :pseudo %>
+        <%= f.text_field :pseudo %></div>
+
+        <div><label for="user_password">Mot de passe</label>
             <%= f.password_field :password, :autocomplete => "off" %>
             <i>(Ne rien mettre si vous ne voulez pas changer de mot de passe)</i>
         </div>
 
 
-        <div><%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %></div>
+        <div><label for="user_password_confirmation">Confirmation</label>
+        <%= f.password_field :password_confirmation %>
+        <i>(Si vous modifiez votre mot de passe, il faut le confirmer)</i></div>
 
-        <div><%= f.label :current_password %> 
+        <div><label for="user_current_password">Mot de passe actuel</label> 
             <%= f.password_field :current_password %>
             <i>(Vous devez obligatoirement entrez votre mot de passe actuel)</i>
         </div>
@@ -26,11 +30,12 @@
         <div><%= f.label :avatar %>
         <%= f.file_field :avatar %></div>
 
-        <div><%= f.submit "Update" %></div>
+        <div class="actions"><%= f.submit "Update" %></div>
         <% end %>
 
-        <p class="suppr_compte">Pas content ? <%= link_to "Supprime ton compte", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
+        <p class="suppr_compte">Pas content ? <%= link_to "Supprimez votre compte", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
         <!--<%= link_to "Back", :back %>-->
+        <div class="spacer"></div>
     </div>
 </div>

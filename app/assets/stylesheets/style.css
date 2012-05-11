@@ -100,9 +100,14 @@ a:hover{
   margin-top: 109px;
 }
 
+.FBConnectButton_Simple .FBConnectButton_Text_Simple {
+  margin: 0 0 0 0px !important;
+  padding-bottom: 1px;
+}
+
 #header_index p.logo {
   float: left;
-  margin-left: 52px;
+  margin-left: 124px;
   width: 335px;
 }
 #header_index p.logo a{
@@ -145,7 +150,6 @@ a:hover{
   font-style: italic;
   height: 21px;
   padding: 1px 0 0 0;
-  margin-bottom:10px;
 }
 
 #user_password {
@@ -275,6 +279,12 @@ color:#f58520;
 	height:219px;
 }
 
+#main_index_right_top form input#user_pseudo,
+#main_index_right_top form input#user_password{
+  margin-bottom:10px;
+}
+
+
 .h1_main_index_right_top{
 	margin-bottom:10px;
 }
@@ -295,13 +305,17 @@ color:#f58520;
 
 #main_index_right_top form input:last-child,
 #travel_search input:last-child,
-#inscription form div:last-child input,
-#motdepasse form div:last-child input,
+#inscription form div.actions input,
+#motdepasse form div.actions input,
 #profil_col_gauche a,
 #contenu_profil table tr td.col_option a,
 #profil_col_droite .new_travel,
-#edit_profil form div:last-child input,
-#edit_trek form div.actions input{
+#edit_profil form div.actions input,
+#edit_trek form div.actions input,
+#contenu_nouveau_trek form div.actions input,
+.flash_message div.flash div input,
+#contenu_activity h1 a,
+#contenu_activity .commentaire input{
 float:right;
 border:1px solid #dd6a00;
 color:#ffffff;
@@ -327,6 +341,10 @@ background: -o-linear-gradient(top,#f99b07,#e16c01);
 background: linear-gradient(top,#f99b07,#e16c01);
 }
 
+#main_index_right_top form input:last-child{
+  margin-top:5px;
+}
+
 #travel_search input:last-child {
   height: 24px;
   margin-left: 8px;
@@ -337,13 +355,17 @@ background: linear-gradient(top,#f99b07,#e16c01);
 
 #main_index_right_top form input:last-child:hover,
 #travel_search input:last-child:hover,
-#inscription form div:last-child input:hover,
-#motdepasse form div:last-child input:hover,
+#inscription form div.actions input:hover,
+#motdepasse form div.actions input:hover,
 #profil_col_gauche a:hover,
 #contenu_profil table tr td.col_option a:hover,
 #profil_col_droite .new_travel:hover,
-#edit_profil form div:last-child input:hover,
-#edit_trek form div.actions input:hover{
+#edit_profil form div.actions input:hover,
+#edit_trek form div.actions input:hover,
+#contenu_nouveau_trek form div.actions input:hover,
+.flash_message div.flash div input:hover,
+#contenu_activity h1 a:hover,
+#contenu_activity .commentaire input:hover{
 /* Anciens navigateurs */
 background: #f99b07 url("gradient-bg.png") repeat-x top;
 -o-background-size: 100% 100%;
@@ -403,10 +425,11 @@ background: linear-gradient(top,#e16c01,#f99b07);
 #search,
 #profil,
 #edit_profil,
-#edit_trek {
+#edit_trek,
+#nouveau_trek{
   background: url("fond_haut.png") no-repeat scroll 0 top transparent;
   margin: 0 auto;
-  width: 742px;
+  width: 900px;
   padding-top:16px;
 
 }
@@ -416,19 +439,19 @@ background: linear-gradient(top,#e16c01,#f99b07);
 #contenu_edit_profil,
 #contenu_edit_trek,
 #contenu_profil,
-#contenu_search{
+#contenu_search,
+#contenu_nouveau_trek{
   background: url("fond_bas.png") no-repeat scroll 0 bottom transparent;
   padding-bottom: 30px;
 }
-
-
 
 
 #inscription h1, 
 #motdepasse h1, 
 #contenu_search h1,
 #contenu_edit_profil h1,
-#contenu_edit_trek h1 {
+#contenu_edit_trek h1,
+#contenu_nouveau_trek h1{
   border-bottom: 1px solid #F58520;
   color: #F58520;
   font-size: 24px;
@@ -436,21 +459,23 @@ background: linear-gradient(top,#e16c01,#f99b07);
   margin-left: auto;
   margin-right: auto;
   padding-top: 20px;
-  width: 630px;
+  width: 770px;
 }
 
 #inscription form,
 #motdepasse form,
 #edit_profil form,
-#edit_trek form {
-  margin-left: 131px;
+#edit_trek form, 
+#contenu_nouveau_trek form{
+  margin-left: 210px;
   width: 378px;
 }
 
 #inscription form label,
 #motdepasse form label,
 #edit_profil form label,
-#edit_trek form label {
+#edit_trek form label,
+#contenu_nouveau_trek form label {
   color: #6F7575;
   display: block;
   float: left;
@@ -463,7 +488,8 @@ background: linear-gradient(top,#e16c01,#f99b07);
 #inscription form input,
 #motdepasse form input,
 #edit_profil form input,
-#edit_trek form input {
+#edit_trek form input,
+#contenu_nouveau_trek form input {
   border: 1px solid #BEBEBE;
   color: #818181;
   font-size: 12px;
@@ -477,14 +503,16 @@ background: linear-gradient(top,#e16c01,#f99b07);
 #inscription form div,
 #motdepasse form div,
 #edit_profil form div,
-#edit_trek form div{
+#edit_trek form div,
+#contenu_nouveau_trek form div{
   margin-bottom: 10px;
 }
 
-#inscription form div:last-child input,
-#motdepasse form div:last-child input,
-#edit_profil form div:last-child input,
-#edit_trek form div.actions input {
+#inscription form div.actions input,
+#motdepasse form div.actions input,
+#edit_profil form div.actions input,
+#edit_trek form div.actions input,
+#contenu_nouveau_trek form div.actions input {
   font-size: 16px;
   height: 28px;
   padding-bottom: 5px;
@@ -492,10 +520,15 @@ background: linear-gradient(top,#e16c01,#f99b07);
   text-align:center;
 }
 
-#motdepasse form div:last-child input {
+#motdepasse form div.actions input {
   font-size: 13px;
   margin-top: 2px;
   width: 174px;
+}
+
+#edit_trek form div.actions input,
+#contenu_nouveau_trek form div.actions input{
+  width:150px;
 }
 
 /******************************************************************************/
@@ -535,11 +568,12 @@ background: linear-gradient(top,#e16c01,#f99b07);
 	text-align:right;
 }
 
-#contenu_search table tr td h2 a,
-#contenu_profil table tr td h3 a{
-  color:#a0a0a0;
-  font-size:24px;
-  display:block;
+#contenu_search table tr td h2 a, 
+#contenu_profil table tr td h3 a {
+  color: #A0A0A0;
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
 }
 
 #contenu_search table tr td a,
@@ -578,7 +612,7 @@ background: linear-gradient(top,#e16c01,#f99b07);
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 20px;
-	width: 630px;
+	width: 770px;
 }
 
 #profil h2{
@@ -590,7 +624,7 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #profil_col_gauche {
   float: left;
-  margin-left: 56px;
+  margin-left: 66px;
   width: 145px;
 }
 
@@ -610,7 +644,7 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #profil_col_droite .new_travel {
-  width: 80px;
+  width: 100px;
 }
 
 #profil_col_gauche a:hover,
@@ -621,17 +655,18 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #profil_col_droite {
   float: left;
-  margin-left: 19px;
-  width: 465px;
+  margin-left: 80px;
+  width: 544px;
 }
 
 #contenu_profil table{
 	position:relative;
 	top:-10px;
+  width: 544px;
 }
 
 #contenu_profil table tr td.col_desc {
-  width: 272px;
+  width: 350px;
 }
 
 #contenu_profil table tr td.col_desc p{
@@ -687,14 +722,197 @@ background: linear-gradient(top,#e16c01,#f99b07);
 
 #edit_profil .suppr_compte{
   font-size: 12px;
-  left: 285px;
+  left: 345px;
   position: relative;
   top: 59px;
   color:#6F7575;
 }
 
+.retour {
+  color: #F58520;
+  font-size: 12px;
+  left: 325px;
+  position: relative;
+  top: 22px;
+}
+
 #edit_profil .suppr_compte a{
   color:#F58520;
+}
+
+/******************************************************************************/
+/************************************ACTIVITY**********************************/
+/******************************************************************************/
+#view_activity{
+  width:900px;
+  margin: 0 auto;
+}
+#trek {
+  background: url("fond_trek.png") no-repeat scroll 0 top transparent;
+  float: left;
+  height: 377px;
+  padding-left: 14px;
+  padding-right: 11px;
+  width: 123px;
+  font-size: 12px;
+  color: #A0A0A0;
+}
+
+#trek img.image-trek {
+  margin-top: 29px;
+  width: 115px;
+}
+
+#trek h1 {
+  color: #A0A0A0;
+  font-weight: bold;
+  margin-top: 14px;
+  text-transform: uppercase;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+#trek a,
+#trek span {
+  color: #f58520;
+  font-size: 12px;
+}
+
+#activity {
+  background: url("fond_haut_trek.png") no-repeat scroll 0 top transparent;
+  float: left;
+
+  padding-top: 16px;
+  width: 752px;
+}
+
+#contenu_activity {
+  background: url("fond_bas_trek.png") no-repeat scroll 4px bottom transparent;
+  padding-bottom: 30px;
+  padding-left: 60px;
+}
+
+
+#contenu_activity h1 {
+  border-bottom: 1px solid #F58520;
+  color: #F58520;
+  font-size: 24px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  width: 637px;
+}
+
+#contenu_activity .reseaux {
+  margin-bottom: 10px;
+}
+
+#contenu_activity h1 a {
+  float: none;
+  font-size: 12px;
+  margin: 0;
+  padding: 3px 8px 4px 6px;
+  position: relative;
+  text-align: right;
+  top: -7px;
+}
+
+#contenu_activity h1{
+  height:26px;
+}
+
+#contenu_activity h1 .name{
+  display:block;
+  float:left;
+}
+
+#contenu_activity h1 .type {
+  background: url("fond_type.jpg") no-repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  display: block;
+  float: left;
+  font-size: 10px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 3px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 83px;
+}
+
+#contenu_activity h1 a:hover {
+  text-decoration:none;
+}
+
+#contenu_activity h1 .edit {
+  float: right;
+  margin-right: 6px;
+}
+
+#contenu_activity h1 .back {
+  margin-right: 0;
+  float:right;
+}
+
+#contenu_activity .col_image {
+  float: left;
+  width: 270px;
+}
+
+#contenu_activity .col_image img{
+  width: 270px;
+}
+
+#contenu_activity .col_description_activity {
+  float: left;
+  margin-left: 40px;
+  width: 313px;
+  color:#a0a0a0;
+  font-size:12px;
+}
+
+#contenu_activity .col_description_activity p{
+  margin-bottom:10px;
+}
+
+#contenu_activity .col_description_activity p span{
+  color:#f58520;
+}
+
+#contenu_activity .col_description_activity p.debut,
+#contenu_activity .col_description_activity p.lieu,
+#contenu_activity .col_description_activity p.description_activity{
+  float:left;
+}
+
+#contenu_activity .col_description_activity p.description_activity{
+  line-height:15px;
+}
+
+#contenu_activity .col_description_activity p.fin,
+#contenu_activity .col_description_activity p.cout{
+  float:right;
+}
+
+
+#contenu_activity .commentaire {
+  width: 637px;
+}
+
+#contenu_activity .commentaire h1 {
+  background: url("commentaires.jpg") no-repeat scroll 0 0 transparent;
+  font-size: 15px;
+  font-weight: bold;
+  height: 16px;
+  margin-top: 30px;
+  padding-left: 22px;
+  padding-top: 0;
+  text-transform: uppercase;
+}
+
+#contenu_activity .commentaire textarea{
+  width:637px;
 }
 
 /******************************************************************************/
@@ -735,7 +953,7 @@ padding-top:20px;
 .derniers_slider_event{
 width:154px;
 float:left;
-padding-left:17px;
+padding-left:23px;
 }
 
 .derniers_slider_event:nth-child(1){
@@ -776,4 +994,46 @@ padding-top:2px;
 
 .spacer {
   clear: both;
+}
+
+.flash_message div.flash {
+  background: url("fond-messenger.png") repeat scroll 0 0 transparent;
+  color: #FFFFFF;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.flash_message div.flash div {
+  background-color: #f9f9f9;
+  border-radius: 10px 10px 10px 10px;
+  color: #A6A6A6;
+  font-family: arial;
+  font-size: 24px;
+  margin: 230px auto auto;
+  padding: 10px 40px 23px;
+  width: 290px;
+}
+
+.flash_message div.flash div h1 {
+  border-bottom: 1px solid #F58520;
+  color: #F58520;
+  font-size: 24px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 13px;
+}
+
+.flash_message div.flash div input {
+  cursor: pointer;
+  display: block;
+  float: none;
+  height: 17px;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 5px 3px 5px 0;
+  text-align: center;
+  width: 40px;
 }

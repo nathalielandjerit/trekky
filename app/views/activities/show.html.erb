@@ -1,72 +1,96 @@
-<p id="notice"><%= notice %></p>
+<div id="view_activity">
+    <div id="trek">
+
+        <h1><%= @travel.name %></h1>
+        <%= link_to "Par "+@travel.user.pseudo, @travel.user%>
+        <%= image_tag @travel.illustration.url(:thumb), :class => "image-trek" %><br/><br/>
+        Départ : <span><%= @travel.start_country %></span><br/>
+        Arrivée : <span><%= @travel.end_country %></span><br/><br/>
+        Début : <span><%= @travel.start_travel %></span><br/>
+        Fin : <span><%= @travel.end_travel %><br><br>
+        
+
+    </div>
 
 
-<h1>Activité : <%= @activity.name %></h1>
+    <div id="activity">
+        <div id="contenu_activity">
 
-<p>
-  <b>Travel:</b>
-  <%= @activity.travel_id %>
-</p>
+            <h1><span class="name"><%= @activity.name %></span>
+                <span class="type"><%= @activity.activity_type %></span>
+                <span class="back"><%= link_to 'Retour', travel_activities_path(@activity.travel_id) %></span>
+                <span class="edit"><%= link_to 'Editer', edit_travel_activity_path(@activity.travel_id, @activity) if can? :manage, @activity %></span>      
+            </h1>
 
-<p>
-  <b>Name:</b>
-  <%= @activity.name %>
-</p>
+            <div class="reseaux">
+                <a class="facebook" name="fb_share" type="icon_link" share_url="<%= request.url %>"><%= image_tag("partage-facebook.png") %></a>
+                <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.url %>" data-lang="fr">Tweeter</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
 
-<p>
-  <b>Description:</b>
-  <%= @activity.description %>
-</p>
+            <div class="col_image">
+                <% @activity.pictures.each do |pict| %>
+                    <%= image_tag pict.picture.url(:medium) %><br>
+                    <%= link_to 'Destroy', [@activity.travel, @activity, pict], confirm: 'Are you sure?', method: :delete if can? :manage, pict %>
+                <% end %>
+                <p><%= render 'formpicture' if can? :manage, @activity %></p>
+            </div>
 
-<p>
-  <b>Type:</b>
-  <%= @activity.activity_type %>
-</p>
+            <div class="col_description_activity">
+                <p class="debut">
+                    Début : 
+                    <span><%= @activity.start_activity %></span>
+                </p>
 
-<p>
-  <b>Lieu:</b>
-  <%= @activity.lieu %>
-</p>
+                <p class="fin">
+                    Fin : 
+                    <span><%= @activity.end_activity %></span>
+                </p>
 
-<p>
-  <b>Cost activity:</b>
-  <%= @activity.cost_activity %>
-</p>
+                <p class="lieu">
+                    Lieu : 
+                    <span><%= @activity.lieu %></span>
+                </p>
 
-<p>
-  <b>Start activity:</b>
-  <%= @activity.start_activity %>
-</p>
+                <p class="cout">
+                    Coût : 
+                    <span><%= @activity.cost_activity %></span>
+                </p>
 
-<p>
-  <b>End activity:</b>
-  <%= @activity.end_activity %>
-</p>
 
-<p>
-<% @activity.pictures.each do |pict| %>
-    <%= image_tag pict.picture.url(:thumb) %>
-    <%= link_to 'Destroy', [@activity.travel, @activity, pict], confirm: 'Are you sure?', method: :delete if can? :manage, pict %>
-<% end %>
-</p>
+                <p class="description_activity">
+                    <%= @activity.description %>
+                </p>
+            </div>
 
-<p><%= render 'formpicture' if can? :manage, @activity %></p>
+            <div class="spacer"></div>
 
-<%= form_for [@activity.travel, @activity,Comment.new] do |f| %>
-  <% if current_user.nil? %>
-    Attention vous n'etes pas connecté
-  <% end %>
-  <fieldset>
-    <legend>Ecrire un commentaire</legend>
-    <%= f.text_area :body, :rows => '3' %><br/>
-    <%= f.submit %>
-  </fieldset>
 
-<% end %>
-<table id="commentaire" class="table">
-<%= render @activity.comments %>
-</table>
+            <div class="commentaire">
+                <%= form_for [@activity.travel, @activity,Comment.new] do |f| %>
+                    <% if current_user.nil? %>
+                        Attention vous n'etes pas connecté
+                    <% end %>
+                    <fieldset>
+                        <h1>Ecrire un commentaire</h1>
+                        <%= f.text_area :body, :rows => '3' %><br/>
+                        <%= f.submit "Poster le commentaire" %>
+                    </fieldset>
 
-<%= link_to 'Edit', edit_travel_activity_path(@activity.travel_id, @activity) if can? :manage, @activity %> 
-<%= link_to 'Back', travel_activities_path(@activity.travel_id) %>
+                <% end %>
+
+                <table id="commentaire" class="table">
+                    <h1>Commentaires</h1>
+                    <%= render @activity.comments %>
+                </table>
+            </div>
+
+            <div class="spacer"></div>
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+</div>
+
 

@@ -12,18 +12,19 @@
         <div><%= f.label :email %>
         <%= f.email_field :email %></div>
 
-        <div><%= f.label :password %>
+        <div><label for="user_password">Mot de passe</label>
         <%= f.password_field :password %></div>
 
-        <div><%= f.label :password_confirmation %>
+        <div><label for="user_password_confirmation">Confirmation</label>
         <%= f.password_field :password_confirmation %></div>
 
         <div><%= f.label :avatar %>
         <%= f.file_field :avatar %></div>
 
-        <div><%= f.submit "Inscription" %></div>
+        <div class="actions"><%= f.submit "Inscription" %></div>
     <% end %>
 
     <!--<%= render "links" %>-->
+    <div class="spacer"></div>
     </div>
 </div>
