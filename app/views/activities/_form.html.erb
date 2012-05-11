@@ -4,8 +4,8 @@
       <h2><%= pluralize(@activity.errors.count, "erreur") %> ont été rencontrée(s) dans votre formulaire d'ajout d'une activité :</h2>
 
       <ul>
-      <% @activity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <% @activity.errors.values.each do |msg| %>
+        <li><%= msg.first %></li>
       <% end %>
       </ul>
     </div>
