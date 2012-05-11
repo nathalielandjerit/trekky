@@ -95,9 +95,10 @@ a:hover{
   height: 32px;
 }
 
-#header_index #reseaux {
-  float: left;
-  margin-top: 109px;
+#reseaux {
+  position: relative;
+  top: 3px;
+  width: 210px;
 }
 
 .FBConnectButton_Simple .FBConnectButton_Text_Simple {
@@ -381,15 +382,16 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #main_index_right_bottom {
+  background: url("btn_ajouter_trek_down.png") no-repeat scroll center 0 transparent;
   height: 153px;
   left: -53px;
+  margin-top: 5px;
   position: relative;
   width: 284px;
-  background:url(btn_ajouter_trek_down.png) no-repeat 0 0 transparent;
 }
 
 #main_index_right_bottom:hover {
-  background:url(btn_ajouter_trek_up.png) no-repeat 0 0 transparent;
+  background:url(btn_ajouter_trek_up.png) no-repeat center 0 transparent;
 }
 
 #main_index_right_bottom a {
@@ -403,8 +405,8 @@ background: linear-gradient(top,#e16c01,#f99b07);
   color: #666666;
   font-family: arial;
   font-size: 18px;
-  padding-left: 35px;
-  padding-top: 54px;
+  padding-left: 27px;
+  padding-top: 23px;
   text-transform: uppercase;
 }
 
@@ -412,7 +414,7 @@ background: linear-gradient(top,#e16c01,#f99b07);
   color: white;
   font-family: arial;
   font-size: 14px;
-  padding-left: 60px;
+  padding-left: 56px;
   padding-top: 7px;
   text-shadow: 1px 1px 2px #000000;
 }
@@ -740,6 +742,12 @@ background: linear-gradient(top,#e16c01,#f99b07);
   color:#F58520;
 }
 
+#profil .reseaux {
+  margin-bottom: 11px;
+  margin-left: 66px;
+  margin-top: -14px;
+}
+
 /******************************************************************************/
 /************************************ACTIVITY**********************************/
 /******************************************************************************/
@@ -779,15 +787,13 @@ background: linear-gradient(top,#e16c01,#f99b07);
 }
 
 #activity {
-  background: url("fond_haut_trek.png") no-repeat scroll 0 top transparent;
+  background: url("fond_bas_trek.png") no-repeat scroll 4px bottom transparent;
   float: left;
-
-  padding-top: 16px;
   width: 752px;
 }
 
 #contenu_activity {
-  background: url("fond_bas_trek.png") no-repeat scroll 4px bottom transparent;
+  background: url("fond_haut_trek.png") no-repeat scroll 0 top transparent;
   padding-bottom: 30px;
   padding-left: 60px;
 }
@@ -909,10 +915,11 @@ background: linear-gradient(top,#e16c01,#f99b07);
   padding-left: 22px;
   padding-top: 0;
   text-transform: uppercase;
+  width:615px;
 }
 
 #contenu_activity .commentaire textarea{
-  width:637px;
+  width:631px;
 }
 
 /******************************************************************************/

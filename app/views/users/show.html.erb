@@ -1,6 +1,12 @@
 <div id="profil">
 	<div id="contenu_profil">
 		<h1>Fiche de <%= @user.pseudo %></h1>
+		<div class="reseaux">
+                <a class="facebook" name="fb_share" type="icon_link" share_url="<%= request.url %>"><%= image_tag("partage-facebook.png") %></a>
+                <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= request.url %>" data-lang="fr">Tweeter</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
 
 		<div id="profil_col_gauche">
 			<h2>Profil</h2>

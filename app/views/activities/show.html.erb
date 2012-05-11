@@ -55,7 +55,7 @@
 
                 <p class="cout">
                     Coût : 
-                    <span><%= @activity.cost_activity %></span>
+                    <span><%= @activity.cost_activity %> €</span>
                 </p>
 
 
@@ -72,13 +72,12 @@
                     <% if current_user.nil? %>
                         Attention vous n'etes pas connecté
                     <% end %>
-                    <fieldset>
                         <h1>Ecrire un commentaire</h1>
                         <%= f.text_area :body, :rows => '3' %><br/>
                         <%= f.submit "Poster le commentaire" %>
-                    </fieldset>
 
                 <% end %>
+                <div class="spacer"></div>
 
                 <table id="commentaire" class="table">
                     <h1>Commentaires</h1>
